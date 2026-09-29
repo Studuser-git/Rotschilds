@@ -2,1197 +2,812 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Аквилон · Люди</title>
-<meta name="description" content="Внутренний HR-портал: правила, процедуры, заявления и связь с отделом персонала.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Семейная книга</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=Golos+Text:wght@400;500;600&display=swap">
 <style>
-:root{
-  --bg:#FFFFFF; --surface:#F1F7FE; --surface-2:#E3F0FD; --card:#FFFFFF; --line:#D3E4F7;
-  --accent:#1F6FD1; --accent-hover:#185DB3; --accent-soft:#DCEBFC; --on-accent:#FFFFFF;
-  --text:#0E2A47; --muted:#4F6985; --faint:#7F95AE;
-  --new:#1F6FD1; --new-bg:#DCEBFC; --work:#A86A00; --work-bg:#FDF0D5; --done:#17804F; --done-bg:#DAF3E6;
-  --danger:#C23A3A; --shadow:0 1px 2px rgba(14,42,71,.06),0 8px 24px rgba(14,42,71,.06);
-  --r:16px; --r-sm:10px;
-  --f-head:"Unbounded",system-ui,sans-serif; --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
-  color-scheme:light;
+/* Layout: одна колонка до 1080px — шапка-обложка книги, вкладки-закладки, разделы из «листов» */
+:root {
+  --bg: #eef0ec;
+  --paper: #fbfcfa;
+  --ink: #1d2826;
+  --muted: #5d6a66;
+  --line: #d6dcd7;
+  --accent: #1f5c4f;
+  --accent-soft: #dfece7;
+  --gold: #9a6e22;
+  --inc: #2f7d4f;
+  --exp: #b0453a;
+  --warn-bg: #fbeee0;
+  --warn: #8a4a12;
+  --deceased: #8c9591;
+  --font-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --font-body: "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r: 10px;
+  color-scheme: light;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#071629; --surface:#0C2240; --surface-2:#112C52; --card:#0E2645; --line:#1C3D66;
-    --accent:#5DA3F7; --accent-hover:#7DB6FA; --accent-soft:#15375F; --on-accent:#061426;
-    --text:#E7F0FB; --muted:#A3BAD5; --faint:#7189A8;
-    --new:#7DB6FA; --new-bg:#15375F; --work:#F2B84B; --work-bg:#3A2C0E; --done:#4FD08F; --done-bg:#0F3A28;
-    --danger:#F07C7C; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
-    color-scheme:dark;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111715; --paper: #19211f; --ink: #e4ebe7; --muted: #9aa8a3; --line: #2c3834;
+    --accent: #72c2aa; --accent-soft: #1f3530; --gold: #d8b060; --inc: #6cc38e; --exp: #e57f73;
+    --warn-bg: #3a2a18; --warn: #f0bf85; --deceased: #75807c; color-scheme: dark;
   }
 }
-:root[data-theme="dark"]{
-  --bg:#071629; --surface:#0C2240; --surface-2:#112C52; --card:#0E2645; --line:#1C3D66;
-  --accent:#5DA3F7; --accent-hover:#7DB6FA; --accent-soft:#15375F; --on-accent:#061426;
-  --text:#E7F0FB; --muted:#A3BAD5; --faint:#7189A8;
-  --new:#7DB6FA; --new-bg:#15375F; --work:#F2B84B; --work-bg:#3A2C0E; --done:#4FD08F; --done-bg:#0F3A28;
-  --danger:#F07C7C; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
-  color-scheme:dark;
+:root[data-theme="dark"] {
+  --bg: #111715; --paper: #19211f; --ink: #e4ebe7; --muted: #9aa8a3; --line: #2c3834;
+  --accent: #72c2aa; --accent-soft: #1f3530; --gold: #d8b060; --inc: #6cc38e; --exp: #e57f73;
+  --warn-bg: #3a2a18; --warn: #f0bf85; --deceased: #75807c; color-scheme: dark;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--f-head);font-weight:600;line-height:1.2;margin:0;letter-spacing:-.01em}
-p{margin:0}
-a{color:var(--accent)}
-button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
-.btn-primary{background:var(--accent);color:var(--on-accent)}
-.btn-primary:hover{background:var(--accent-hover)}
-.btn-ghost{background:var(--card);border-color:var(--line);color:var(--text)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-.btn-soft{background:var(--accent-soft);color:var(--accent)}
-.btn-soft:hover{border-color:var(--accent)}
-.btn-sm{padding:7px 13px;font-size:14px}
-.btn-link{background:none;border:0;padding:4px 0;color:var(--accent);font-weight:600;cursor:pointer}
-.btn[disabled]{opacity:.55;cursor:not-allowed}
-.ico{width:18px;height:18px;flex:none}
-
-/* header */
-.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-.top-in{display:flex;align-items:center;gap:20px;height:68px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--f-head);font-size:15px;white-space:nowrap}
-.logo b{font-weight:700}
-.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:700;font-size:16px}
-.nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
-.nav::-webkit-scrollbar{display:none}
-.nav a{padding:8px 11px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14.5px;font-weight:500;white-space:nowrap}
-.nav a:hover{color:var(--text);background:var(--surface)}
-.nav a.hr-link{color:var(--accent);background:var(--accent-soft)}
-.top-act{display:flex;align-items:center;gap:10px}
-.lang{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
-.lang button{border:0;background:none;padding:5px 10px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-
-/* hero */
-.hero{padding:56px 0 40px;background:radial-gradient(1200px 400px at 85% -10%,var(--surface-2),transparent 70%),linear-gradient(var(--surface),var(--bg))}
-.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;align-items:start}
-.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:5px 12px;border-radius:999px;margin-bottom:18px}
-.hero h1{font-size:clamp(28px,4.2vw,46px);font-weight:700;max-width:14ch}
-.hero-sub{color:var(--muted);font-size:18px;margin-top:16px;max-width:52ch}
-.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.quick .btn{padding:12px 20px}
-.event{display:flex;gap:14px;align-items:center;margin-top:28px;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);max-width:520px}
-.event-date{flex:none;width:56px;height:56px;border-radius:12px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;text-align:center;line-height:1.05}
-.event-date b{font-family:var(--f-head);font-size:20px;display:block}
-.event-date span{font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-.event small{color:var(--faint);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-.event p{font-weight:600;line-height:1.35}
-.event .meta{font-weight:400;color:var(--muted);font-size:14px}
-.memo{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
-.memo h2{font-size:17px;display:flex;align-items:center;gap:10px}
-.memo ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:4px}
-.memo li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line)}
-.memo li:first-child{border-top:0}
-.memo li b{font-family:var(--f-head);font-size:22px;color:var(--accent);min-width:72px;font-weight:600}
-.memo li span{color:var(--muted);font-size:15px}
-
-/* sections */
-section.sec{padding:64px 0}
-section.sec.alt{background:var(--surface)}
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
-.sec-num{font-family:var(--f-head);font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.06em;margin-bottom:8px}
-.sec-head h2{font-size:clamp(22px,3vw,30px)}
-.sec-head p{color:var(--muted);margin-top:8px;max-width:60ch}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
-.tag{display:inline-flex;align-items:center;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
-.tag.warn{background:var(--work-bg);color:var(--work)}
-.tag.ok{background:var(--done-bg);color:var(--done)}
-.tag.plain{background:var(--surface-2);color:var(--muted)}
-
-/* announcements */
-.ann-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
-.ann-main{padding:28px;background:linear-gradient(145deg,var(--accent) 0%,color-mix(in srgb,var(--accent) 70%,#0E2A47) 100%);color:#fff;border:0;display:flex;flex-direction:column;gap:14px;min-height:280px}
-.ann-main .tag{background:rgba(255,255,255,.18);color:#fff;align-self:flex-start}
-.ann-main h3{font-size:22px;line-height:1.25}
-.ann-main p{opacity:.92;flex:1}
-.ann-main .btn{align-self:flex-start;background:#fff;color:#0E2A47}
-.ann-main .btn:hover{background:#E3F0FD}
-.feed{display:grid;gap:12px}
-.feed-item{display:flex;gap:16px;padding:16px 18px}
-.feed-date{flex:none;width:52px;text-align:center;border-right:1px solid var(--line);padding-right:14px}
-.feed-date b{display:block;font-family:var(--f-head);font-size:22px;line-height:1.1}
-.feed-date span{font-size:12.5px;color:var(--muted)}
-.feed-item h3{font-family:var(--f-body);font-weight:600;font-size:16px;margin:6px 0 4px}
-.feed-item p{color:var(--muted);font-size:14.5px}
-
-/* docs */
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.doc{overflow:hidden}
-.doc summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:center;padding:16px 18px}
-.doc summary::-webkit-details-marker{display:none}
-.doc-code{flex:none;font-family:var(--f-head);font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 9px;border-radius:8px;min-width:78px;text-align:center}
-.doc-t{flex:1;min-width:0}
-.doc-t b{display:block;font-weight:600;line-height:1.3}
-.doc-t span{font-size:13px;color:var(--faint)}
-.chev{flex:none;width:20px;height:20px;color:var(--muted);transition:transform .2s}
-details[open]>summary .chev{transform:rotate(180deg)}
-.doc-body{padding:0 18px 18px 110px}
-.doc-body p{color:var(--muted);font-size:15px}
-.doc-body h4{margin:14px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint)}
-.doc-body ul{margin:0 0 14px;padding-left:18px}
-.doc-body li{margin:4px 0}
-
-/* procedures */
-.proc{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
-.tabs{display:flex;flex-direction:column;gap:6px}
-.tab{text-align:left;border:1px solid transparent;background:none;padding:14px 16px;border-radius:12px;cursor:pointer;font-weight:500;color:var(--muted);display:flex;flex-direction:column;gap:2px}
-.tab small{font-size:12px;color:var(--faint);font-weight:500}
-.tab:hover{background:var(--card);color:var(--text)}
-.tab[aria-selected="true"]{background:var(--card);border-color:var(--line);color:var(--text);box-shadow:var(--shadow)}
-.tab[aria-selected="true"] small{color:var(--accent)}
-.panel{padding:28px}
-.panel h3{font-size:21px;margin:10px 0 8px}
-.panel>p{color:var(--muted)}
-.steps{list-style:none;padding:0;margin:24px 0;counter-reset:s;display:grid;gap:0}
-.steps li{counter-increment:s;position:relative;padding:0 0 22px 52px}
-.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--f-head);font-weight:600;font-size:14px}
-.steps li:not(:last-child)::after{content:"";position:absolute;left:16.5px;top:36px;bottom:4px;width:1px;background:var(--line)}
-.steps b{display:block;font-weight:600}
-.steps span{color:var(--muted);font-size:15px}
-.row{display:flex;flex-wrap:wrap;gap:10px}
-
-/* services */
-.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.svc-card{padding:20px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,transform .15s}
-.svc-card:hover{border-color:var(--accent)}
-.svc-ic{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
-.svc-ic svg{width:22px;height:22px}
-.svc-card h3{font-family:var(--f-body);font-size:17px;font-weight:600}
-.svc-card p{color:var(--muted);font-size:14.5px;flex:1}
-.svc-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;padding-top:12px;border-top:1px solid var(--line)}
-.svc-foot small{color:var(--faint);font-size:13px}
-.svc-foot small b{color:var(--text);font-weight:600}
-
-/* info */
-.info-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;align-items:start}
-.contacts{padding:8px 20px}
-.contact{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
-.contact:first-of-type{border-top:0}
-.contact .svc-ic{width:40px;height:40px}
-.contact div{flex:1;min-width:0}
-.contact small{display:block;color:var(--faint);font-size:12.5px}
-.contact b{font-weight:600;word-break:break-all}
-.faq{display:grid;gap:10px}
-.faq details{padding:0}
-.faq summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;gap:12px;align-items:center;font-weight:600}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary span{flex:1}
-.faq details p{padding:0 18px 18px;color:var(--muted)}
-.sub-h{font-size:18px;margin:44px 0 18px}
-.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.person{padding:20px;display:flex;flex-direction:column;gap:12px}
-.person-top{display:flex;gap:14px;align-items:center}
-.avatar{width:52px;height:52px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-family:var(--f-head);font-weight:600;font-size:16px;flex:none}
-.person h3{font-family:var(--f-body);font-size:17px;font-weight:600}
-.person-top p{color:var(--muted);font-size:14px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.mail{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);word-break:break-all}
-.mail button{flex:none}
-
-/* my + ideas */
-.two{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
-.list{display:grid;gap:12px}
-.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:var(--r);background:var(--card)}
-.req{padding:18px}
-.req-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.req-top h3{font-family:var(--f-body);font-size:16px;font-weight:600;flex:1;min-width:0}
-.st{font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
-.st-new{background:var(--new-bg);color:var(--new)}
-.st-work{background:var(--work-bg);color:var(--work)}
-.st-done{background:var(--done-bg);color:var(--done)}
-.req-meta{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;font-size:13.5px;color:var(--muted)}
-.req-meta b{color:var(--text);font-weight:500}
-.req-text{margin-top:10px;font-size:15px;white-space:pre-wrap;word-break:break-word}
-.reply{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--done-bg);font-size:15px}
-.reply small{display:block;font-weight:600;color:var(--done);font-size:12.5px;margin-bottom:2px}
-.idea-form{padding:18px;display:grid;gap:12px;margin-bottom:16px}
-.idea{padding:16px 18px}
-.idea p{margin-top:8px;white-space:pre-wrap;word-break:break-word}
-.idea-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px;color:var(--faint)}
-.btn-del{background:none;border:0;color:var(--danger);font-weight:600;font-size:13px;cursor:pointer;padding:4px 0}
-.note{padding:16px 18px;border-radius:var(--r);background:var(--work-bg);color:var(--text);font-size:15px}
-.note ul{margin:8px 0 0;padding-left:18px}
-
-/* HR panel */
-.hr-sec{background:linear-gradient(var(--surface-2),var(--surface))}
-.counters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
-.counter{padding:18px 20px}
-.counter b{font-family:var(--f-head);font-size:30px;display:block;line-height:1.1}
-.counter span{color:var(--muted);font-size:14px}
-.counter.c-new b{color:var(--new)}.counter.c-work b{color:var(--work)}.counter.c-done b{color:var(--done)}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.chip{border:1px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:500;color:var(--muted)}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.hr-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
-.hr-card{padding:18px;display:flex;flex-direction:column;gap:10px}
-.hr-who{font-size:13.5px;color:var(--muted)}
-.hr-who b{color:var(--text)}
-.hr-edit{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:start;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
-.hr-edit .full{grid-column:1/-1;display:flex;justify-content:flex-end}
-
-/* forms */
-.field{display:grid;gap:6px}
-.field>label,.field>.lbl{font-size:14px;font-weight:600}
-.field .hint{font-size:13px;color:var(--faint)}
-input[type=text],input[type=date],select,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--bg);transition:border-color .15s}
-textarea{resize:vertical;min-height:96px}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-[aria-invalid="true"]{border-color:var(--danger)!important}
-.err{color:var(--danger);font-size:13.5px;font-weight:500;min-height:0}
-.err:empty{display:none}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.slots{display:flex;flex-wrap:wrap;gap:8px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.opt span{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:500;background:var(--bg)}
-.opt input:checked+span{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.opt input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
-.opt input:disabled+span{opacity:.4;text-decoration:line-through}
-.counter-chars{font-size:12.5px;color:var(--faint);text-align:right}
-
-dialog{border:0;padding:0;border-radius:20px;background:var(--card);color:var(--text);width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);box-shadow:0 24px 64px rgba(0,0,0,.3)}
-dialog::backdrop{background:rgba(7,22,41,.55);backdrop-filter:blur(3px)}
-.dlg-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 22px 0}
-.dlg-head h2{font-size:19px}
-.x{border:0;background:var(--surface);width:36px;height:36px;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--muted);flex:none}
-.x:hover{color:var(--text)}
-.dlg-body{padding:18px 22px 22px;display:grid;gap:16px}
-.dlg-foot{display:flex;justify-content:flex-end;gap:10px;padding-top:4px}
-
-/* FAB */
-.fab{position:fixed;right:20px;bottom:20px;z-index:50}
-.fab-btn{box-shadow:0 10px 30px rgba(31,111,209,.4);padding:14px 20px;font-size:15px}
-.fab-menu{position:absolute;right:0;bottom:calc(100% + 10px);width:280px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 50px rgba(7,22,41,.25);padding:8px;display:none}
-.fab.open .fab-menu{display:block}
-.fab-menu button{display:flex;align-items:center;gap:12px;width:100%;border:0;background:none;padding:11px 12px;border-radius:12px;cursor:pointer;text-align:left;font-weight:500}
-.fab-menu button:hover{background:var(--surface)}
-.fab-menu button small{display:block;color:var(--faint);font-size:12.5px;font-weight:400}
-.fab-menu hr{border:0;border-top:1px solid var(--line);margin:6px 4px}
-.fab-menu .ico{color:var(--accent)}
-
-/* toasts */
-.toasts{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:100;display:grid;gap:8px;width:min(440px,calc(100vw - 32px))}
-.toast{background:var(--text);color:var(--bg);padding:12px 16px;border-radius:14px;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,.25);animation:tin .2s ease-out}
-.toast input{margin-top:8px;width:100%;padding:8px 10px;border-radius:8px;border:0;background:var(--bg);color:var(--text)}
-.toast.bad{background:var(--danger);color:#fff}
-@keyframes tin{from{opacity:0;transform:translateY(8px)}}
-
-/* footer */
-footer{background:var(--surface);border-top:1px solid var(--line);padding:40px 0 100px;font-size:14.5px;color:var(--muted)}
-.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
-.foot h3{font-family:var(--f-body);font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px}
-.foot p{margin:3px 0}
-.demo{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-.demo .filters{margin:0}
-
-/* responsive */
-@media (max-width:960px){
-  .hero-grid,.ann-grid,.info-grid,.two{grid-template-columns:1fr}
-  .proc{grid-template-columns:1fr}
-  .tabs{flex-direction:row;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
-  .tabs::-webkit-scrollbar{display:none}
-  .tab{flex:none;max-width:240px}
-  .docs{grid-template-columns:1fr}
-  .foot{grid-template-columns:1fr 1fr}
-  .top-in{flex-wrap:wrap;height:auto;padding:10px 16px;gap:8px 16px}
-  .nav{order:3;flex-basis:100%;margin:0 -16px;padding:0 12px}
-  .top-act{margin-left:auto}
-  html{scroll-padding-top:120px}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.55 var(--font-body);
+  padding-inline: 16px; padding-block: 0 48px;
 }
-@media (max-width:640px){
-  .ask-top{display:none}
-  .hero{padding:36px 0 28px}
-  .hero-sub{font-size:16px}
-  .quick .btn{flex:1 1 100%}
-  section.sec{padding:44px 0}
-  .doc-body{padding:0 18px 18px}
-  .panel{padding:20px}
-  .counters{grid-template-columns:1fr 1fr 1fr;gap:8px}
-  .counter{padding:12px}
-  .counter b{font-size:22px}
-  .hr-list{grid-template-columns:1fr}
-  .hr-edit,.grid2{grid-template-columns:1fr}
-  .foot{grid-template-columns:1fr}
-  .fab{right:16px;bottom:16px}
-  .fab-btn .fab-label{display:none}
-  .fab-btn{padding:14px}
-  .logo .logo-txt{display:none}
+.wrap { max-width: 1080px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.num { font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.eyebrow { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+/* Шапка */
+header.top { padding-block: 36px 8px; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: flex-end; justify-content: space-between; }
+.title-block { min-width: 0; }
+.title-block h1 { font-size: clamp(2rem, 5vw, 3.1rem); letter-spacing: -.01em; }
+.motto { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--muted); margin-top: 4px; }
+.head-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.chip.ro { background: var(--warn-bg); color: var(--warn); }
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+.btn { border: 1px solid var(--line); background: var(--paper); padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: .88rem; font-weight: 500; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.btn.primary:hover { filter: brightness(1.1); color: var(--paper); }
+.btn.danger { color: var(--exp); }
+.btn.danger.armed { background: var(--exp); border-color: var(--exp); color: var(--paper); }
+.btn.small { padding: 4px 10px; font-size: .8rem; }
+.linkbtn { border: 0; background: none; padding: 0; color: var(--accent); cursor: pointer; font-size: .85rem; font-weight: 500; }
+.linkbtn:hover { text-decoration: underline; }
+
+/* Вкладки */
+nav.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-block: 16px 28px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+nav.tabs button { border: 0; background: none; padding: 12px 16px 10px; cursor: pointer; font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--gold); font-weight: 700; }
+
+section.panel { display: grid; gap: 40px; }
+.sec-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+.sheet { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; min-width: 0; }
+.tag { font-size: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+.tag.ex { background: transparent; border: 1px dashed var(--muted); color: var(--muted); }
+.tag.late { background: var(--warn-bg); color: var(--warn); }
+
+/* Родословная */
+.gen { display: grid; grid-template-columns: 170px 1fr; gap: 12px 20px; padding-block: 16px; border-top: 1px solid var(--line); }
+.gen:first-of-type { border-top: 0; }
+.gen-label { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; padding-top: 10px; }
+.gen-label small { display: block; font-family: var(--font-body); font-weight: 400; font-size: .78rem; color: var(--muted); }
+.people { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; }
+.person { display: flex; gap: 12px; align-items: center; text-align: left; border: 1px solid var(--line); background: var(--paper); border-radius: var(--r); padding: 10px 12px; cursor: pointer; min-width: 0; }
+.person:hover { border-color: var(--accent); }
+.avatar { flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 1rem; background: var(--accent-soft); color: var(--accent); }
+.person.dead .avatar { background: var(--line); color: var(--deceased); }
+.person.dead .p-name { color: var(--muted); }
+.p-name { font-weight: 600; line-height: 1.25; }
+.p-meta { font-size: .8rem; color: var(--muted); }
+.line-mark { font-size: .7rem; color: var(--gold); font-weight: 600; letter-spacing: .03em; }
+
+/* История */
+.story { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.6; max-width: 65ch; }
+.story p { margin: 0 0 .8em; }
+.timeline { list-style: none; margin: 24px 0 0; padding: 0 0 0 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 68px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.timeline li { display: grid; grid-template-columns: 56px 1fr; gap: 28px; padding-block: 10px; position: relative; }
+.timeline li::after { content: ""; position: absolute; left: 63px; top: 18px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--gold); }
+.t-year { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; text-align: right; color: var(--gold); }
+.t-body { min-width: 0; max-width: 65ch; }
+.t-title { font-weight: 600; }
+.t-text { color: var(--muted); font-size: .92rem; }
+
+/* Таблицы */
+.tbl-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th { text-align: left; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr:last-child td { border-bottom: 0; }
+tr.click { cursor: pointer; }
+tr.click:hover td { background: var(--accent-soft); }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.dead td:first-child { color: var(--muted); }
+tfoot td { font-weight: 600; border-top: 1px solid var(--line); border-bottom: 0; }
+
+/* Активы */
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tile { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; min-width: 0; }
+.tile .val { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; margin-top: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tile .sub { font-size: .8rem; color: var(--muted); }
+.tile.net { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.tile.net .eyebrow, .tile.net .sub { color: var(--paper); opacity: .85; }
+.pos { color: var(--inc); } .neg { color: var(--exp); }
+.grid2 { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; }
+.chart-box { position: relative; }
+.chart-box svg { width: 100%; height: auto; display: block; }
+.legend { display: flex; gap: 16px; font-size: .82rem; color: var(--muted); margin-top: 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--paper); font-size: .8rem; padding: 6px 10px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -110%); line-height: 1.4; }
+.cats { display: grid; gap: 10px; margin-top: 8px; }
+.cat-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; font-size: .88rem; }
+.cat-bar { grid-column: 1 / -1; height: 8px; border-radius: 4px; background: var(--bg); overflow: hidden; }
+.cat-bar i { display: block; height: 100%; background: var(--exp); border-radius: 4px; }
+.debts { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.debt dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 12px 0; font-size: .86rem; }
+.debt dt { color: var(--muted); } .debt dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.progress { height: 8px; border-radius: 4px; background: var(--bg); overflow: hidden; }
+.progress i { display: block; height: 100%; background: var(--accent); }
+.month-pick { display: flex; gap: 8px; align-items: center; font-size: .88rem; }
+select, input, textarea { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
+.totals { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: .9rem; margin-top: 12px; }
+.type-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+
+/* Планы */
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.filters button { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 5px 12px; font-size: .84rem; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.col { min-width: 0; }
+.col-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 8px; border-bottom: 2px solid var(--line); margin-bottom: 10px; }
+.col-head .n { font-size: .85rem; color: var(--muted); }
+.col[data-s="В работе"] .col-head { border-color: var(--gold); }
+.col[data-s="Готово"] .col-head { border-color: var(--accent); }
+.cards { display: grid; gap: 10px; }
+.plan { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; display: grid; gap: 8px; }
+.plan-top { display: flex; justify-content: space-between; gap: 8px; align-items: center; flex-wrap: wrap; }
+.plan-title { font-weight: 600; font-size: 1rem; }
+.plan-note { font-size: .86rem; color: var(--muted); }
+.plan-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .8rem; color: var(--muted); }
+.empty { color: var(--muted); font-size: .88rem; padding: 12px; border: 1px dashed var(--line); border-radius: var(--r); text-align: center; }
+
+/* Диалог */
+dialog { border: 1px solid var(--line); border-radius: 14px; background: var(--paper); color: var(--ink); padding: 0; width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 48px); }
+dialog::backdrop { background: rgba(10, 16, 14, .5); }
+.dlg-in { padding: 22px; display: grid; gap: 14px; }
+.dlg-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.x { border: 0; background: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); line-height: 1; padding: 4px 8px; }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: grid; gap: 4px; min-width: 0; }
+.field.wide { grid-column: 1 / -1; }
+.field label { font-size: .8rem; font-weight: 500; color: var(--muted); }
+.field input, .field select, .field textarea { width: 100%; }
+.field textarea { min-height: 90px; resize: vertical; }
+.field.bad input, .field.bad select { border-color: var(--exp); }
+.err { color: var(--exp); font-size: .78rem; }
+.note-warn { background: var(--warn-bg); color: var(--warn); padding: 10px 12px; border-radius: 8px; font-size: .85rem; }
+.dlg-foot { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.dlg-foot .right { display: flex; gap: 8px; margin-left: auto; }
+.info { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; font-size: .92rem; }
+.info dt { color: var(--muted); } .info dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.card-hero { display: flex; gap: 14px; align-items: center; }
+.card-hero .avatar { width: 56px; height: 56px; font-size: 1.3rem; }
+footer.foot { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+
+@media (max-width: 860px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .grid2, .board { grid-template-columns: 1fr; }
+  .gen { grid-template-columns: 1fr; gap: 8px; }
+  .gen-label { padding-top: 0; }
+}
+@media (max-width: 480px) {
+  .tile .val { font-size: 1.35rem; }
+  .fields { grid-template-columns: 1fr; }
+  .sheet { padding: 14px; }
+  .timeline::before { left: 52px; }
+  .timeline li { grid-template-columns: 42px 1fr; gap: 24px; }
+  .timeline li::after { left: 47px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .person, .filters button { transition: border-color .15s, background .15s, color .15s; }
 }
 </style>
 </head>
-<body id="top">
-<header class="top" id="hdr"></header>
-<main id="main"></main>
-<footer id="ftr"></footer>
-<div class="fab" id="fab"></div>
-<dialog id="dlg" aria-labelledby="dlgTitle"></dialog>
-<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="title-block">
+      <div class="eyebrow">Семейная книга</div>
+      <h1 id="famName">…</h1>
+      <div class="motto" id="famMotto"></div>
+    </div>
+    <div class="head-actions">
+      <span class="chip" id="rights"></span>
+      <button class="btn small" id="editFamily" type="button">Изменить название</button>
+      <button class="btn small" id="toggleMode" type="button"></button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Разделы">
+    <button role="tab" id="tab-history" data-tab="history" type="button">История семьи</button>
+    <button role="tab" id="tab-assets" data-tab="assets" type="button">Активы семьи</button>
+    <button role="tab" id="tab-plans" data-tab="plans" type="button">Планы семьи</button>
+  </nav>
+
+  <main>
+    <section class="panel" id="panel-history" role="tabpanel" aria-labelledby="tab-history"></section>
+    <section class="panel" id="panel-assets" role="tabpanel" aria-labelledby="tab-assets"></section>
+    <section class="panel" id="panel-plans" role="tabpanel" aria-labelledby="tab-plans"></section>
+  </main>
+
+  <footer class="foot">
+    <span>Данные хранятся в этом браузере. Записи с меткой «пример» — демонстрационные.</span>
+    <button class="linkbtn" id="resetDemo" type="button">Вернуть демо-данные</button>
+  </footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgTitle"><div class="dlg-in" id="dlgBody"></div></dialog>
 
 <script>
-/* ============ Контакты и контент (редактируйте здесь) ============ */
-const CONTACTS = {
-  phone: '+7 (727) 300-00-00',
-  email: 'hr@akvilon.kz',
-  telegram: '@akvilon_hr',
-  address: { ru: 'г. Алматы, пр. Абая, 10, офис 305', kk: 'Алматы қ., Абай даңғылы, 10, 305-кеңсе' },
-  hours: { ru: 'Пн–Пт, 9:00–18:00, обед 13:00–14:00', kk: 'Дс–Жм, 9:00–18:00, түскі ас 13:00–14:00' }
-};
+(function () {
+"use strict";
 
-const EVENT = {
-  date: '2026-10-09', time: '16:00',
-  place: { ru: 'Конференц-зал, 3 этаж', kk: 'Конференц-зал, 3-қабат' },
-  title: { ru: 'Открытая встреча с HR: вопросы об отпусках и ДМС', kk: 'HR-мен ашық кездесу: демалыс және ЕМС туралы сұрақтар' }
-};
+/* ---------- Справочники ---------- */
+const GEN = { 1: "Прадеды", 2: "Бабушки и дедушки", 3: "Родители", 4: "Дети", 5: "Внуки" };
+const LINES = ["общая", "отцовская", "материнская"];
+const INC_CATS = ["Зарплата", "Подработка", "Проценты и дивиденды", "Пособия", "Подарки", "Прочие доходы"];
+const EXP_CATS = ["Продукты", "Жильё и коммуналка", "Транспорт", "Кредиты", "Образование", "Здоровье", "Одежда", "Отдых и развлечения", "Подарки", "Прочее"];
+const KINDS = ["Недвижимость", "Транспорт", "Вклад", "Наличные", "Инвестиции", "Ценности", "Прочее"];
+const AREAS = ["Развитие семьи", "Обучение детей", "Отдых и развлечения", "Крупные покупки", "Здоровье", "Дом"];
+const STATUSES = ["Идея", "В работе", "Готово"];
+const MONTHS = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
+const MONTHS_SHORT = ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"];
+const MAX_DOCS = 5000;
+const KEY = "family-book-v1";
 
-const ANN = {
-  main: {
-    title: { ru: 'Выбор программы ДМС на 2027 год — до 31 октября', kk: '2027 жылға ЕМС бағдарламасын таңдау — 31 қазанға дейін' },
-    text: { ru: 'Компания расширяет добровольное медицинское страхование: в программу добавлены стоматология и онлайн-консультации для членов семьи. Выберите пакет до 31 октября — иначе останется текущий.', kk: 'Компания ерікті медициналық сақтандыруды кеңейтеді: бағдарламаға стоматология және отбасы мүшелеріне онлайн-кеңес қосылды. Пакетті 31 қазанға дейін таңдаңыз — әйтпесе қазіргісі қалады.' },
-    topic: 'dms'
-  },
-  feed: [
-    { date: '2026-09-24', cat: 'training', title: { ru: 'Курс «Эффективные переговоры» — набор открыт', kk: '«Тиімді келіссөздер» курсы — жазылу ашық' }, text: { ru: '8 занятий по четвергам, старт 15 октября. Места ограничены — запишитесь через HR.', kk: 'Бейсенбі күндері 8 сабақ, басталуы 15 қазанда. Орын шектеулі — HR арқылы жазылыңыз.' } },
-    { date: '2026-09-18', cat: 'event', title: { ru: 'День компании 17 октября', kk: 'Компания күні 17 қазанда' }, text: { ru: 'Выезд за город, программа для детей, трансфер от офиса в 10:00.', kk: 'Қала сыртына шығу, балаларға арналған бағдарлама, кеңседен трансфер 10:00-де.' } },
-    { date: '2026-09-10', cat: 'changes', title: { ru: 'Обновлено Положение об оплате труда', kk: 'Еңбекақы төлеу туралы ереже жаңартылды' }, text: { ru: 'Уточнён порядок расчёта квартальной премии по KPI. Новая редакция действует с 1 октября.', kk: 'KPI бойынша тоқсандық сыйақыны есептеу тәртібі нақтыланды. Жаңа редакция 1 қазаннан бастап қолданылады.' } },
-    { date: '2026-09-02', cat: 'changes', title: { ru: 'Электронные расчётные листки', kk: 'Электрондық есеп парақтары' }, text: { ru: 'Расчётные листки теперь доступны только в личном кабинете — бумажные больше не печатаются.', kk: 'Есеп парақтары енді тек жеке кабинетте қолжетімді — қағаз нұсқасы басылмайды.' } }
-  ]
-};
-
-const DOCS = [
-  { code: 'ПВТР-01', date: '2026-01-15',
-    title: { ru: 'Правила внутреннего трудового распорядка', kk: 'Ішкі еңбек тәртібінің қағидалары' },
-    desc: { ru: 'Режим работы, перерывы, порядок отсутствия и дисциплина.', kk: 'Жұмыс режимі, үзілістер, жұмыста болмау тәртібі және тәртіп.' },
-    points: { ru: ['Рабочий день 9:00–18:00, обед 13:00–14:00', '40 часов в неделю, пятидневная рабочая неделя', 'О невыходе на работу — сообщить руководителю до 10:00'], kk: ['Жұмыс күні 9:00–18:00, түскі ас 13:00–14:00', 'Аптасына 40 сағат, бес күндік жұмыс аптасы', 'Жұмысқа шықпау туралы — басшыға 10:00-ге дейін хабарлау'] } },
-  { code: 'ПОТ-02', date: '2026-09-10',
-    title: { ru: 'Положение об оплате труда и премировании', kk: 'Еңбекақы төлеу және сыйақы беру туралы ереже' },
-    desc: { ru: 'Сроки выплат, премии, расчётные листки.', kk: 'Төлем мерзімдері, сыйақылар, есеп парақтары.' },
-    points: { ru: ['Зарплата выплачивается 5 и 20 числа', 'Квартальная премия — до 20% оклада по KPI', 'Расчётный листок — в личном кабинете'], kk: ['Жалақы айдың 5 және 20 күні төленеді', 'Тоқсандық сыйақы — KPI бойынша лауазымдық жалақының 20%-на дейін', 'Есеп парағы — жеке кабинетте'] } },
-  { code: 'ПО-03', date: '2025-12-01',
-    title: { ru: 'Положение об отпусках', kk: 'Демалыстар туралы ереже' },
-    desc: { ru: 'Продолжительность, график, деление и перенос отпуска.', kk: 'Демалыстың ұзақтығы, кестесі, бөлінуі және ауыстырылуы.' },
-    points: { ru: ['Ежегодный отпуск — 24 календарных дня (ст. 88 ТК РК)', 'График на следующий год утверждается до 15 декабря', 'При делении одна часть — не менее 2 недель'], kk: ['Жыл сайынғы демалыс — 24 күнтізбелік күн (ҚР ЕК 88-бабы)', 'Келесі жылға арналған кесте 15 желтоқсанға дейін бекітіледі', 'Бөлген кезде бір бөлігі кемінде 2 апта болуы керек'] } },
-  { code: 'ПСК-04', date: '2026-03-20',
-    title: { ru: 'Положение о служебных командировках', kk: 'Қызметтік іссапарлар туралы ереже' },
-    desc: { ru: 'Оформление поездки, суточные и отчётность.', kk: 'Сапарды рәсімдеу, тәуліктік ақы және есеп беру.' },
-    points: { ru: ['Суточные выплачиваются до поездки', 'Авансовый отчёт — в течение 3 рабочих дней после возвращения'], kk: ['Тәуліктік ақы сапарға дейін төленеді', 'Аванстық есеп — оралғаннан кейін 3 жұмыс күні ішінде'] } },
-  { code: 'ПЗД-05', date: '2025-09-01',
-    title: { ru: 'Положение о защите персональных данных', kk: 'Дербес деректерді қорғау туралы ереже' },
-    desc: { ru: 'Как компания хранит и использует данные сотрудников.', kk: 'Компания қызметкерлер деректерін қалай сақтайды және пайдаланады.' },
-    points: { ru: ['Персональные данные хранятся только в HR-системе', 'Доступ — только по служебной необходимости'], kk: ['Дербес деректер тек HR-жүйеде сақталады', 'Қолжетімділік — тек қызметтік қажеттілік бойынша'] } },
-  { code: 'КДЭ-06', date: '2026-02-10',
-    title: { ru: 'Кодекс деловой этики', kk: 'Іскерлік этика кодексі' },
-    desc: { ru: 'Правила поведения, подарки, конфликт интересов.', kk: 'Мінез-құлық қағидалары, сыйлықтар, мүдделер қақтығысы.' },
-    points: { ru: ['Подарки от партнёров — не дороже 2 МРП', 'О конфликте интересов — сообщить руководителю и HR', 'О нарушениях можно сообщить анонимно'], kk: ['Серіктестерден сыйлықтар — 2 АЕК-тен аспауы керек', 'Мүдделер қақтығысы туралы — басшыға және HR-ға хабарлау', 'Бұзушылықтар туралы жасырын хабарлауға болады'] } }
-];
-
-const PROCS = [
-  { type: 'proc', form: 'vacation', topic: 'vacation',
-    title: { ru: 'Оформление отпуска', kk: 'Демалысты рәсімдеу' },
-    desc: { ru: 'Как уйти в ежегодный оплачиваемый отпуск.', kk: 'Жыл сайынғы ақылы демалысқа қалай шығу керек.' },
-    steps: [
-      [{ ru: 'Согласуйте даты с руководителем', kk: 'Күндерді басшымен келісіңіз' }, { ru: 'Проверьте график отпусков и остаток дней.', kk: 'Демалыс кестесін және қалған күндерді тексеріңіз.' }],
-      [{ ru: 'Подайте заявление за 14 дней', kk: 'Өтінішті 14 күн бұрын беріңіз' }, { ru: 'Через форму «Ежегодный отпуск» на этой странице.', kk: 'Осы беттегі «Жыл сайынғы демалыс» нысаны арқылы.' }],
-      [{ ru: 'Подпишите приказ ЭЦП', kk: 'Бұйрыққа ЭЦҚ-мен қол қойыңыз' }, { ru: 'HR подготовит приказ, вы получите его на подпись.', kk: 'HR бұйрық дайындайды, сіз оны қол қоюға аласыз.' }],
-      [{ ru: 'Получите отпускные', kk: 'Демалыс ақысын алыңыз' }, { ru: 'Не позднее чем за 3 дня до начала отпуска.', kk: 'Демалыс басталғанға дейін 3 күннен кешіктірмей.' }]
-    ] },
-  { type: 'proc', form: null, topic: 'procedures',
-    title: { ru: 'Адаптация нового сотрудника', kk: 'Жаңа қызметкердің бейімделуі' },
-    desc: { ru: 'Первые три месяца в компании.', kk: 'Компаниядағы алғашқы үш ай.' },
-    steps: [
-      [{ ru: 'Первый день', kk: 'Бірінші күн' }, { ru: 'Пропуск, рабочее место, доступы и знакомство с командой.', kk: 'Рұқсатнама, жұмыс орны, қолжетімділіктер және командамен танысу.' }],
-      [{ ru: 'Наставник', kk: 'Тәлімгер' }, { ru: 'Руководитель назначает наставника на испытательный срок.', kk: 'Басшы сынақ мерзіміне тәлімгер тағайындайды.' }],
-      [{ ru: 'Встречи с HR через 1 и 3 месяца', kk: 'HR-мен 1 және 3 айдан кейін кездесу' }, { ru: 'Обсуждаем, что получается и где нужна помощь.', kk: 'Не жақсы шығып жатқанын және қай жерде көмек керек екенін талқылаймыз.' }],
-      [{ ru: 'Итоги испытательного срока', kk: 'Сынақ мерзімінің қорытындысы' }, { ru: 'Испытательный срок — до 3 месяцев.', kk: 'Сынақ мерзімі — 3 айға дейін.' }]
-    ] },
-  { type: 'policy', form: 'other', topic: 'procedures',
-    title: { ru: 'Удалённая и гибридная работа', kk: 'Қашықтан және гибридті жұмыс' },
-    desc: { ru: 'Когда и как можно работать вне офиса.', kk: 'Кеңседен тыс қашан және қалай жұмыс істеуге болады.' },
-    steps: [
-      [{ ru: 'Согласуйте формат с руководителем', kk: 'Форматты басшымен келісіңіз' }, { ru: 'Какие дни и задачи подходят для удалённой работы.', kk: 'Қашықтан жұмысқа қандай күндер мен міндеттер сәйкес келеді.' }],
-      [{ ru: 'Оформите заявку', kk: 'Өтінім рәсімдеңіз' }, { ru: 'Через форму «Другое» с указанием дней.', kk: '«Басқа» нысаны арқылы күндерді көрсетіп.' }],
-      [{ ru: 'Будьте на связи 10:00–17:00', kk: '10:00–17:00 аралығында байланыста болыңыз' }, { ru: 'В рабочих чатах и по телефону.', kk: 'Жұмыс чаттарында және телефон арқылы.' }]
-    ] },
-  { type: 'proc', form: 'other', topic: 'procedures',
-    title: { ru: 'Увольнение по собственному желанию', kk: 'Өз еркімен жұмыстан шығу' },
-    desc: { ru: 'Порядок и сроки расчёта.', kk: 'Тәртібі және есеп айырысу мерзімдері.' },
-    steps: [
-      [{ ru: 'Заявление за 1 месяц', kk: 'Өтінішті 1 ай бұрын беріңіз' }, { ru: 'Согласно ст. 56 ТК РК; срок можно сократить по договорённости.', kk: 'ҚР ЕК 56-бабына сәйкес; келісім бойынша мерзімді қысқартуға болады.' }],
-      [{ ru: 'Передача дел', kk: 'Істерді тапсыру' }, { ru: 'Составьте список задач и передайте их коллеге.', kk: 'Міндеттер тізімін жасап, әріптесіңізге тапсырыңыз.' }],
-      [{ ru: 'Обходной лист', kk: 'Айналма парақ' }, { ru: 'Сдайте технику, пропуск и документы.', kk: 'Техниканы, рұқсатнаманы және құжаттарды тапсырыңыз.' }],
-      [{ ru: 'Окончательный расчёт', kk: 'Түпкілікті есеп айырысу' }, { ru: 'В течение 7 календарных дней после увольнения.', kk: 'Жұмыстан шыққаннан кейін 7 күнтізбелік күн ішінде.' }]
-    ] },
-  { type: 'policy', form: null, topic: 'procedures',
-    title: { ru: 'Сообщение о нарушениях', kk: 'Бұзушылықтар туралы хабарлау' },
-    desc: { ru: 'Как сообщить о нарушении и что будет дальше.', kk: 'Бұзушылық туралы қалай хабарлау керек және одан кейін не болады.' },
-    steps: [
-      [{ ru: 'Сообщите удобным способом', kk: 'Ыңғайлы тәсілмен хабарлаңыз' }, { ru: 'HR, руководителю, в Telegram или анонимно через доску идей.', kk: 'HR-ға, басшыға, Telegram-да немесе идеялар тақтасы арқылы жасырын.' }],
-      [{ ru: 'Рассмотрение — 10 рабочих дней', kk: 'Қарау — 10 жұмыс күні' }, { ru: 'Комиссия проверяет факты и сообщает о результате.', kk: 'Комиссия фактілерді тексеріп, нәтижесі туралы хабарлайды.' }],
-      [{ ru: 'Защита от преследования', kk: 'Қудалаудан қорғау' }, { ru: 'Сообщившего добросовестно нельзя наказать за обращение.', kk: 'Адал ниетпен хабарлаған адамды өтініші үшін жазалауға болмайды.' }]
-    ] }
-];
-
-const SERVICES = [
-  { id: 'vacation', icon: 'sun', dates: true, title: { ru: 'Ежегодный отпуск', kk: 'Жыл сайынғы демалыс' }, desc: { ru: 'Заявление на оплачиваемый отпуск.', kk: 'Ақылы демалысқа өтініш.' }, term: { ru: '1 рабочий день', kk: '1 жұмыс күні' }, hint: { ru: 'Например: делю отпуск на две части, вторая — в декабре.', kk: 'Мысалы: демалысты екі бөлікке бөлемін, екіншісі — желтоқсанда.' } },
-  { id: 'cert_work', icon: 'doc', dates: false, title: { ru: 'Справка с места работы', kk: 'Жұмыс орнынан анықтама' }, desc: { ru: 'Для банка, визы, детского сада.', kk: 'Банк, виза, балабақша үшін.' }, term: { ru: '2 рабочих дня', kk: '2 жұмыс күні' }, hint: { ru: 'Куда нужна справка и нужно ли указать доход?', kk: 'Анықтама қайда керек және табысты көрсету керек пе?' } },
-  { id: 'cert_income', icon: 'coins', dates: false, title: { ru: 'Справка о доходах', kk: 'Табыс туралы анықтама' }, desc: { ru: 'За выбранный период.', kk: 'Таңдалған кезеңге.' }, term: { ru: '3 рабочих дня', kk: '3 жұмыс күні' }, hint: { ru: 'За какой период? Например: январь–сентябрь 2026.', kk: 'Қай кезеңге? Мысалы: 2026 жылғы қаңтар–қыркүйек.' } },
-  { id: 'sick', icon: 'heart', dates: true, title: { ru: 'Больничный', kk: 'Ауруханалық парақ' }, desc: { ru: 'Лист временной нетрудоспособности.', kk: 'Еңбекке уақытша жарамсыздық парағы.' }, term: { ru: 'В день обращения', kk: 'Өтініш берген күні' }, hint: { ru: 'Номер листа и название клиники, если уже есть.', kk: 'Парақ нөмірі және клиника атауы, егер бар болса.' } },
-  { id: 'trip', icon: 'plane', dates: true, title: { ru: 'Командировка', kk: 'Іссапар' }, desc: { ru: 'Приказ, суточные, билеты.', kk: 'Бұйрық, тәуліктік ақы, билеттер.' }, term: { ru: '3 рабочих дня', kk: '3 жұмыс күні' }, hint: { ru: 'Город, цель поездки и нужна ли гостиница.', kk: 'Қала, сапар мақсаты және қонақүй керек пе.' } },
-  { id: 'personal', icon: 'user', dates: false, title: { ru: 'Изменение личных данных', kk: 'Жеке деректерді өзгерту' }, desc: { ru: 'Фамилия, адрес, реквизиты счёта.', kk: 'Тегі, мекенжайы, шот деректемелері.' }, term: { ru: '1 рабочий день', kk: '1 жұмыс күні' }, hint: { ru: 'Что изменилось? Документы HR запросит отдельно.', kk: 'Не өзгерді? Құжаттарды HR бөлек сұратады.' } },
-  { id: 'other', icon: 'dots', dates: false, title: { ru: 'Другое', kk: 'Басқа' }, desc: { ru: 'Если нужной услуги нет в списке.', kk: 'Қажетті қызмет тізімде болмаса.' }, term: { ru: '—', kk: '—' }, hint: { ru: 'Опишите, что вам нужно.', kk: 'Сізге не қажет екенін сипаттаңыз.' } }
-];
-
-const FAQ = [
-  { q: { ru: 'Можно ли перенести отпуск?', kk: 'Демалысты ауыстыруға бола ма?' }, a: { ru: 'Да, по согласованию с руководителем. Подайте заявление «Другое» не позднее чем за 14 дней до начала запланированного отпуска.', kk: 'Иә, басшымен келісу бойынша. Жоспарланған демалыс басталғанға дейін 14 күннен кешіктірмей «Басқа» өтінішін беріңіз.' } },
-  { q: { ru: 'Когда выплачивается зарплата?', kk: 'Жалақы қашан төленеді?' }, a: { ru: 'Дважды в месяц — 5 и 20 числа. Если дата выпадает на выходной, выплата производится в предшествующий рабочий день.', kk: 'Айына екі рет — 5 және 20 күні. Егер күн демалысқа сәйкес келсе, төлем алдыңғы жұмыс күні жүргізіледі.' } },
-  { q: { ru: 'Можно ли разделить отпуск на части?', kk: 'Демалысты бөліктерге бөлуге бола ма?' }, a: { ru: 'Да. Одна из частей должна быть не менее 2 календарных недель, остальные — на ваше усмотрение.', kk: 'Иә. Бөліктердің бірі кемінде 2 күнтізбелік апта болуы керек, қалғаны — өз қалауыңыз бойынша.' } },
-  { q: { ru: 'Где взять справку о пенсионных отчислениях?', kk: 'Зейнетақы аударымдары туралы анықтаманы қайдан алуға болады?' }, a: { ru: 'Выписку можно получить самостоятельно на egov.kz или в личном кабинете ЕНПФ (enpf.kz) — это быстрее, чем через HR.', kk: 'Үзінді көшірмені egov.kz порталында немесе БЖЗҚ жеке кабинетінде (enpf.kz) өзіңіз ала аласыз — бұл HR арқылы алудан жылдамырақ.' } },
-  { q: { ru: 'Как порекомендовать друга на вакансию?', kk: 'Досымды бос орынға қалай ұсынуға болады?' }, a: { ru: 'Отправьте резюме через «Задать вопрос» с темой «Другое». Если кандидат пройдёт испытательный срок, вы получите бонус за рекомендацию.', kk: 'Түйіндемені «Басқа» тақырыбымен «Сұрақ қою» арқылы жіберіңіз. Кандидат сынақ мерзімінен өтсе, ұсыныс үшін бонус аласыз.' } }
-];
-
-const TEAM = [
-  { id: 'as', name: { ru: 'Айгерим Сапарова', kk: 'Әйгерім Сапарова' }, role: { ru: 'Руководитель отдела персонала', kk: 'Персонал бөлімінің басшысы' }, email: 'a.saparova@akvilon.kz', tags: [{ ru: 'Адаптация', kk: 'Бейімделу' }, { ru: 'Конфликты', kk: 'Қақтығыстар' }, { ru: 'Развитие', kk: 'Даму' }] },
-  { id: 'da', name: { ru: 'Данияр Ахметов', kk: 'Данияр Ахметов' }, role: { ru: 'Кадровое делопроизводство', kk: 'Кадрлық іс жүргізу' }, email: 'd.akhmetov@akvilon.kz', tags: [{ ru: 'Отпуска', kk: 'Демалыстар' }, { ru: 'Справки', kk: 'Анықтамалар' }, { ru: 'Приказы', kk: 'Бұйрықтар' }] },
-  { id: 'mk', name: { ru: 'Мария Ким', kk: 'Мария Ким' }, role: { ru: 'Обучение и льготы', kk: 'Оқыту және жеңілдіктер' }, email: 'm.kim@akvilon.kz', tags: [{ ru: 'Обучение', kk: 'Оқыту' }, { ru: 'ДМС', kk: 'ЕМС' }, { ru: 'Мероприятия', kk: 'Іс-шаралар' }] }
-];
-
-const TOPICS = ['salary', 'vacation', 'docs', 'dms', 'training', 'procedures', 'other'];
-const IDEA_CATS = ['office', 'process', 'training', 'corp', 'other'];
-const SLOTS = ['10:00', '11:00', '12:00', '14:00', '15:00', '16:00', '17:00'];
-
-/* ============ Интерфейс RU / ҚАЗ ============ */
-const I18N = {
-  ru: {
-    people: 'Люди', nav_ann: 'Объявления', nav_rules: 'Правила и положения', nav_policies: 'Политики и процедуры', nav_forms: 'Формы', nav_info: 'Информация', nav_my: 'Мои обращения', nav_hr: 'Панель HR',
-    ask: 'Задать вопрос', kicker: 'Портал для сотрудников',
-    hero_title: 'Всё о работе в компании — на одной странице',
-    hero_sub: 'Правила, процедуры, заявления и связь с HR. Найдите ответ за пару минут или напишите нам — ответим в течение рабочего дня.',
-    qa_vac: 'Оформить отпуск', qa_meet: 'Записаться на встречу', qa_ask: 'Задать вопрос HR',
-    memo: 'Памятка сотрудника', memo1: 'календарных дня ежегодного отпуска', memo2: 'числа — выплата зарплаты', memo3: 'дней — срок подачи заявления на отпуск', memo4: 'рабочий день — срок ответа HR',
-    event: 'Ближайшее событие',
-    s_ann: 'Объявления', s_ann_sub: 'Новости компании, обучение и изменения в правилах.',
-    important: 'Важно', clarify: 'Уточнить условия', cat_training: 'Обучение', cat_event: 'Событие', cat_changes: 'Изменения',
-    s_rules: 'Правила и положения', s_rules_sub: 'Локальные нормативные документы компании. Раскройте документ, чтобы увидеть главное.',
-    rev: d => 'ред. от ' + d, key_points: 'Ключевые пункты', req_full: 'Запросить полный текст', req_full_text: (c, n) => `Прошу направить полный текст документа ${c} «${n}».`,
-    s_pol: 'Политики и процедуры', s_pol_sub: 'Пошаговые инструкции для типичных ситуаций.',
-    type_proc: 'Процедура', type_policy: 'Политика', fill_form: 'Заполнить форму', ask_topic: 'Задать вопрос по теме',
-    s_forms: 'Формы', s_forms_sub: 'Заявления и справки онлайн. Статус виден в разделе «Мои обращения».', term: 'Срок', apply: 'Оформить',
-    s_info: 'Информация', s_info_sub: 'Контакты, частые вопросы и команда HR.',
-    contacts: 'Контакты', hotline: 'Горячая линия', email: 'Почта HR', telegram: 'Telegram', copy: 'Копировать', copied: 'Скопировано', copy_fail: 'Нажмите Ctrl+C, чтобы скопировать',
-    faq: 'Частые вопросы', team: 'Команда HR', book: 'Записаться', write: 'Написать',
-    s_my: 'Мои обращения', s_my_sub: 'Видите только вы и команда HR. Статус обновляется автоматически.',
-    my_empty: 'Обращений пока нет. Подайте заявление или задайте вопрос — оно появится здесь.',
-    st_new: 'Новое', st_work: 'В работе', st_done: 'Готово',
-    k_request: 'Заявление', k_question: 'Вопрос', k_meeting: 'Встреча',
-    created: 'Создано', spec: 'Специалист', any_spec: 'Любой свободный', period: 'Период', when: 'Когда', hr_reply: 'Ответ HR',
-    s_ideas: 'Доска идей', s_ideas_sub: 'Анонимно: сохраняются только тема, текст и дата.', idea_ph: 'Что можно улучшить в работе, офисе или процессах?', publish: 'Опубликовать', ideas_empty: 'Идей пока нет — станьте первым.',
-    del: 'Удалить', del_confirm: 'Точно удалить?', idea_topic: 'Тема идеи', idea_text: 'Текст идеи',
-    ic_office: 'Офис и быт', ic_process: 'Процессы', ic_training: 'Обучение', ic_corp: 'Корпоративная жизнь', ic_other: 'Другое',
-    s_hr: 'Панель HR', s_hr_sub: 'Все обращения сотрудников. Видна только команде HR.',
-    c_new: 'новых', c_work: 'в работе', c_done: 'готово', f_all: 'Все', f_new: 'Новые', f_work: 'В работе', f_done: 'Готово',
-    status: 'Статус', reply: 'Ответ сотруднику', save: 'Сохранить', saved: 'Сохранено', hr_empty: 'В этой категории обращений нет.',
-    t_salary: 'Зарплата', t_vacation: 'Отпуск', t_docs: 'Документы', t_dms: 'ДМС', t_training: 'Обучение', t_procedures: 'Процедуры', t_other: 'Другое',
-    dlg_request: 'Заявление в HR', dlg_question: 'Вопрос в HR', dlg_meeting: 'Запись на встречу', dlg_nosend: 'Связаться с HR',
-    f_type: 'Тип заявления', f_from: 'Дата начала', f_to: 'Дата окончания', f_comment: 'Комментарий', f_comment_req: 'Комментарий (обязательно)',
-    f_topic: 'Тема', f_text: 'Ваш вопрос', f_date: 'Дата', f_time: 'Время', f_format: 'Формат', fmt_office: 'Очно', fmt_video: 'Видеозвонок', f_about: 'О чём хотите поговорить',
-    f_about_ph: 'Коротко опишите тему встречи', f_text_ph: 'Опишите ситуацию — так мы ответим быстрее',
-    pick_day: 'Сначала выберите рабочий день', no_slots: 'На эту дату свободных слотов нет — выберите другой день.',
-    send: 'Отправить', cancel: 'Отмена', close: 'Закрыть',
-    err_from: 'Укажите дату начала', err_to: 'Дата окончания не может быть раньше даты начала', err_comment: 'Опишите, что вам нужно', err_text: 'Напишите вопрос',
-    err_date: 'Выберите дату', err_weekday: 'Встречи проводятся только по будням', err_past: 'Дата не может быть в прошлом', err_slot: 'Выберите время', err_idea: 'Напишите идею',
-    toast_ok: 'Обращение принято', toast_idea: 'Идея опубликована — спасибо!', toast_fail: 'Не удалось сохранить. Попробуйте ещё раз или напишите на почту HR.', toast_del: 'Идея удалена',
-    ro_msg: 'У вас доступ только для чтения, поэтому отправить обращение через портал нельзя. Свяжитесь с HR напрямую:',
-    ns_msg: 'Хранилище недоступно, поэтому обращения через портал сейчас не отправляются. Свяжитесь с HR напрямую:',
-    fab: 'Связаться с HR', fab_request: 'Подать заявление', fab_idea: 'Предложить идею', fab_ask_s: 'Ответим в течение рабочего дня', fab_meet_s: 'Очно или по видео', fab_req_s: 'Отпуск, справки, командировка', fab_idea_s: 'Анонимно',
-    foot_dept: 'Отдел по работе с персоналом', foot_addr: 'Адрес', foot_hours: 'Часы работы', foot_contacts: 'Контакты',
-    demo_role: 'Демо-роль:', r_employee: 'Сотрудник', r_viewer: 'Только чтение', r_hr: 'Специалист HR',
-    demo_note: 'Прототип v1: контент демонстрационный, обращения хранятся в этом браузере.', you: 'Вы (демо-сотрудник)', chars: 'символов'
-  },
-  kk: {
-    people: 'Адамдар', nav_ann: 'Хабарландырулар', nav_rules: 'Қағидалар мен ережелер', nav_policies: 'Саясаттар мен рәсімдер', nav_forms: 'Нысандар', nav_info: 'Ақпарат', nav_my: 'Менің өтініштерім', nav_hr: 'HR панелі',
-    ask: 'Сұрақ қою', kicker: 'Қызметкерлерге арналған портал',
-    hero_title: 'Компаниядағы жұмыс туралы бәрі — бір бетте',
-    hero_sub: 'Қағидалар, рәсімдер, өтініштер және HR-мен байланыс. Жауапты бірнеше минутта табыңыз немесе бізге жазыңыз — жұмыс күні ішінде жауап береміз.',
-    qa_vac: 'Демалыс рәсімдеу', qa_meet: 'Кездесуге жазылу', qa_ask: 'HR-ға сұрақ қою',
-    memo: 'Қызметкер жадынамасы', memo1: 'күнтізбелік күн жыл сайынғы демалыс', memo2: 'күні — жалақы төлеу', memo3: 'күн — демалысқа өтініш беру мерзімі', memo4: 'жұмыс күні — HR жауап беру мерзімі',
-    event: 'Жақын іс-шара',
-    s_ann: 'Хабарландырулар', s_ann_sub: 'Компания жаңалықтары, оқыту және қағидалардағы өзгерістер.',
-    important: 'Маңызды', clarify: 'Шарттарды нақтылау', cat_training: 'Оқыту', cat_event: 'Іс-шара', cat_changes: 'Өзгерістер',
-    s_rules: 'Қағидалар мен ережелер', s_rules_sub: 'Компанияның жергілікті нормативтік құжаттары. Негізгісін көру үшін құжатты ашыңыз.',
-    rev: d => d + ' редакциясы', key_points: 'Негізгі тармақтар', req_full: 'Толық мәтінді сұрау', req_full_text: (c, n) => `${c} «${n}» құжатының толық мәтінін жіберуіңізді сұраймын.`,
-    s_pol: 'Саясаттар мен рәсімдер', s_pol_sub: 'Жиі кездесетін жағдайларға арналған қадамдық нұсқаулар.',
-    type_proc: 'Рәсім', type_policy: 'Саясат', fill_form: 'Нысанды толтыру', ask_topic: 'Тақырып бойынша сұрақ қою',
-    s_forms: 'Нысандар', s_forms_sub: 'Өтініштер мен анықтамалар онлайн. Мәртебесі «Менің өтініштерім» бөлімінде көрінеді.', term: 'Мерзімі', apply: 'Рәсімдеу',
-    s_info: 'Ақпарат', s_info_sub: 'Байланыстар, жиі қойылатын сұрақтар және HR командасы.',
-    contacts: 'Байланыстар', hotline: 'Жедел желі', email: 'HR поштасы', telegram: 'Telegram', copy: 'Көшіру', copied: 'Көшірілді', copy_fail: 'Көшіру үшін Ctrl+C басыңыз',
-    faq: 'Жиі қойылатын сұрақтар', team: 'HR командасы', book: 'Жазылу', write: 'Жазу',
-    s_my: 'Менің өтініштерім', s_my_sub: 'Оларды тек сіз және HR командасы көреді. Мәртебесі автоматты түрде жаңартылады.',
-    my_empty: 'Әзірге өтініштер жоқ. Өтініш беріңіз немесе сұрақ қойыңыз — ол осында пайда болады.',
-    st_new: 'Жаңа', st_work: 'Жұмыста', st_done: 'Дайын',
-    k_request: 'Өтініш', k_question: 'Сұрақ', k_meeting: 'Кездесу',
-    created: 'Құрылды', spec: 'Маман', any_spec: 'Кез келген бос маман', period: 'Кезең', when: 'Қашан', hr_reply: 'HR жауабы',
-    s_ideas: 'Идеялар тақтасы', s_ideas_sub: 'Жасырын: тек тақырып, мәтін және күн сақталады.', idea_ph: 'Жұмыста, кеңседе немесе процестерде нені жақсартуға болады?', publish: 'Жариялау', ideas_empty: 'Әзірге идеялар жоқ — бірінші болыңыз.',
-    del: 'Жою', del_confirm: 'Шынымен жою керек пе?', idea_topic: 'Идея тақырыбы', idea_text: 'Идея мәтіні',
-    ic_office: 'Кеңсе және тұрмыс', ic_process: 'Процестер', ic_training: 'Оқыту', ic_corp: 'Корпоративтік өмір', ic_other: 'Басқа',
-    s_hr: 'HR панелі', s_hr_sub: 'Қызметкерлердің барлық өтініштері. Тек HR командасына көрінеді.',
-    c_new: 'жаңа', c_work: 'жұмыста', c_done: 'дайын', f_all: 'Барлығы', f_new: 'Жаңалар', f_work: 'Жұмыста', f_done: 'Дайын',
-    status: 'Мәртебе', reply: 'Қызметкерге жауап', save: 'Сақтау', saved: 'Сақталды', hr_empty: 'Бұл санатта өтініштер жоқ.',
-    t_salary: 'Жалақы', t_vacation: 'Демалыс', t_docs: 'Құжаттар', t_dms: 'ЕМС', t_training: 'Оқыту', t_procedures: 'Рәсімдер', t_other: 'Басқа',
-    dlg_request: 'HR-ға өтініш', dlg_question: 'HR-ға сұрақ', dlg_meeting: 'Кездесуге жазылу', dlg_nosend: 'HR-мен байланысу',
-    f_type: 'Өтініш түрі', f_from: 'Басталу күні', f_to: 'Аяқталу күні', f_comment: 'Түсініктеме', f_comment_req: 'Түсініктеме (міндетті)',
-    f_topic: 'Тақырып', f_text: 'Сұрағыңыз', f_date: 'Күні', f_time: 'Уақыты', f_format: 'Формат', fmt_office: 'Бетпе-бет', fmt_video: 'Бейнеқоңырау', f_about: 'Не туралы сөйлескіңіз келеді',
-    f_about_ph: 'Кездесу тақырыбын қысқаша сипаттаңыз', f_text_ph: 'Жағдайды сипаттаңыз — осылай тезірек жауап береміз',
-    pick_day: 'Алдымен жұмыс күнін таңдаңыз', no_slots: 'Бұл күнге бос уақыт жоқ — басқа күнді таңдаңыз.',
-    send: 'Жіберу', cancel: 'Болдырмау', close: 'Жабу',
-    err_from: 'Басталу күнін көрсетіңіз', err_to: 'Аяқталу күні басталу күнінен ерте болмауы керек', err_comment: 'Сізге не қажет екенін сипаттаңыз', err_text: 'Сұрағыңызды жазыңыз',
-    err_date: 'Күнді таңдаңыз', err_weekday: 'Кездесулер тек жұмыс күндері өтеді', err_past: 'Күн өткен уақытта болмауы керек', err_slot: 'Уақытты таңдаңыз', err_idea: 'Идеяңызды жазыңыз',
-    toast_ok: 'Өтініш қабылданды', toast_idea: 'Идея жарияланды — рақмет!', toast_fail: 'Сақтау мүмкін болмады. Қайталап көріңіз немесе HR поштасына жазыңыз.', toast_del: 'Идея жойылды',
-    ro_msg: 'Сізде тек оқуға рұқсат бар, сондықтан портал арқылы өтініш жіберу мүмкін емес. HR-мен тікелей байланысыңыз:',
-    ns_msg: 'Қойма қолжетімсіз, сондықтан қазір портал арқылы өтініш жіберілмейді. HR-мен тікелей байланысыңыз:',
-    fab: 'HR-мен байланысу', fab_request: 'Өтініш беру', fab_idea: 'Идея ұсыну', fab_ask_s: 'Жұмыс күні ішінде жауап береміз', fab_meet_s: 'Бетпе-бет немесе бейне арқылы', fab_req_s: 'Демалыс, анықтамалар, іссапар', fab_idea_s: 'Жасырын',
-    foot_dept: 'Персоналмен жұмыс бөлімі', foot_addr: 'Мекенжай', foot_hours: 'Жұмыс уақыты', foot_contacts: 'Байланыстар',
-    demo_role: 'Демо-рөл:', r_employee: 'Қызметкер', r_viewer: 'Тек оқу', r_hr: 'HR маманы',
-    demo_note: 'v1 прототипі: мазмұн демонстрациялық, өтініштер осы браузерде сақталады.', you: 'Сіз (демо-қызметкер)', chars: 'таңба'
-  }
-};
-
-/* ============ Хранилище (демо: браузер сотрудника) ============ */
-const Store = (() => {
-  let ok = false;
-  try { localStorage.setItem('__akv', '1'); localStorage.removeItem('__akv'); ok = true; } catch (e) {}
-  const get = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } };
-  const set = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } };
-  const keys = p => { const out = []; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith(p)) out.push(k); } } catch (e) {} return out; };
-  return { ok, get, set, keys };
-})();
-
-const ME = 'emp-demo';
-const REQ = 'akv.req.';
-const NAMES = { 'emp-102': 'Асель Нурланова', 'emp-117': 'Игорь Павлов' };
-
-let lang = Store.get('akv.lang', 'ru'); if (!I18N[lang]) lang = 'ru';
-let role = Store.get('akv.role', 'employee');
-let procIdx = 0, hrFilter = 'new';
-
-const t = k => I18N[lang][k] ?? I18N.ru[k] ?? k;
-const L = o => (o && typeof o === 'object') ? (o[lang] ?? o.ru) : o;
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-const canSend = () => Store.ok && role !== 'viewer';
-const loc = () => lang === 'kk' ? 'kk-KZ' : 'ru-RU';
-const parseDay = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
-const isoDay = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-const todayIso = () => isoDay(new Date());
-const fmtDay = (s, o = { day: 'numeric', month: 'long', year: 'numeric' }) => { try { return new Intl.DateTimeFormat(loc(), o).format(parseDay(s)); } catch (e) { return s; } };
-const fmtTs = s => { try { return new Intl.DateTimeFormat(loc(), { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }).format(new Date(s)); } catch (e) { return s; } };
-const specName = id => { const p = TEAM.find(x => x.id === id); return p ? L(p.name) : t('any_spec'); };
-const initials = n => n.split(' ').map(w => w[0]).join('').slice(0, 2);
-
-const ICONS = {
-  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
-  doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
-  coins: '<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
-  heart: '<path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/><path d="M12 10v5M9.5 12.5h5"/>',
-  plane: '<path d="M17.8 19.2 16 11l3.5-3.5A2.1 2.1 0 0 0 16.5 4.5L13 8 4.8 6.2 3 8l6.5 3.5L6 15H3l-1 1 4 2 2 4 1-1v-3l3.5-3.5L16 21z"/>',
-  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
-  dots: '<circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/>',
-  chev: '<path d="m6 9 6 6 6-6"/>',
-  phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
-  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
-  send: '<path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/>',
-  chat: '<path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6.2A8 8 0 1 1 21 12z"/>',
-  cal: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
-  bulb: '<path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>',
-  copy: '<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
-  x: '<path d="M18 6 6 18M6 6l12 12"/>',
-  book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'
-};
-const ic = (n, cls = 'ico') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
-
-/* ============ Демо-данные при первом запуске ============ */
-function nextWeekday(offset) {
-  const d = new Date(); d.setDate(d.getDate() + offset);
-  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
-  return isoDay(d);
-}
+/* ---------- Демо-данные ---------- */
 function seed() {
-  if (!Store.ok || Store.get('akv.seeded', false)) return;
-  const now = Date.now(), h = 36e5;
-  const ago = x => new Date(now - x * h).toISOString();
-  Store.set(REQ + 'emp-102', { items: [
-    { id: uid(), kind: 'question', type: 'dms', status: 'new', createdAt: ago(3), text: 'Можно ли включить в программу ДМС супруга? Если да — сколько это стоит?', lang: 'ru', spec: 'mk', reply: '', updatedAt: ago(3) },
-    { id: uid(), kind: 'request', type: 'cert_income', status: 'work', createdAt: ago(40), text: 'За январь–август 2026, для банка.', lang: 'ru', spec: 'da', reply: '', updatedAt: ago(20) }
-  ], updatedAt: ago(3) });
-  Store.set(REQ + 'emp-117', { items: [
-    { id: uid(), kind: 'meeting', type: 'meeting', status: 'new', createdAt: ago(6), text: 'Хочу обсудить план обучения на 2027 год.', lang: 'ru', spec: 'mk', day: nextWeekday(2), slot: '11:00', format: 'video', reply: '', updatedAt: ago(6) },
-    { id: uid(), kind: 'request', type: 'vacation', status: 'done', createdAt: ago(120), text: '', lang: 'ru', spec: '', from: nextWeekday(20), to: nextWeekday(33), reply: 'Приказ подготовлен — подпишите его ЭЦП в системе документооборота.', updatedAt: ago(30) }
-  ], updatedAt: ago(6) });
-  Store.set('akv.ideas', [
-    { id: uid(), category: 'training', text: 'Внутренние мини-лекции по пятницам: коллеги по 20 минут рассказывают о своих проектах.', createdAt: ago(28) },
-    { id: uid(), category: 'office', text: 'Поставить фильтр для воды на 4 этаже — сейчас за водой ходят на третий.', createdAt: ago(75) }
-  ]);
-  Store.set('akv.seeded', true);
+  const ex = (arr) => arr.map((o, i) => Object.assign({ id: "d" + Math.random().toString(36).slice(2, 8) + i, example: true }, o));
+  return {
+    family: {
+      name: "Семья Ротшильдов",
+      motto: "Concordia, Integritas, Industria — согласие, честность, трудолюбие",
+      story: "Род начался во франкфуртском еврейском квартале, где Майер Амшель Ротшильд торговал старинными монетами и векселями. Пятерых сыновей он отправил в пять столиц Европы — Франкфурт, Вену, Лондон, Неаполь и Париж, — и семейные банки действовали как одно целое.\n\nДевиз на гербе и пять стрел в кулаке напоминают о главном правиле основателя: братья сильны, пока держатся вместе. Эта книга продолжает семейную летопись и помогает вести общее хозяйство.",
+      example: true
+    },
+    members: ex([
+      { name: "Майер Амшель Ротшильд", relation: "прадед", generation: 1, line: "общая", birthDate: "1744-02-23", deathDate: "1812-09-19", birthPlace: "Франкфурт-на-Майне", occupation: "Банкир, основатель дома" },
+      { name: "Гутле Шнаппер", relation: "прабабушка", generation: 1, line: "общая", birthDate: "1753-08-23", deathDate: "1849-05-07", birthPlace: "Франкфурт-на-Майне", notes: "Пережила мужа на 37 лет и до конца жизни оставалась в доме на Юденгассе." },
+      { name: "Натан Майер Ротшильд", relation: "дедушка", generation: 2, line: "отцовская", birthDate: "1777-09-16", deathDate: "1836-07-28", birthPlace: "Франкфурт-на-Майне", occupation: "Основатель N M Rothschild & Sons, Лондон" },
+      { name: "Ханна Коэн", relation: "бабушка", generation: 2, line: "отцовская", birthDate: "1783", deathDate: "1850", birthPlace: "Лондон" },
+      { name: "Карл Майер фон Ротшильд", relation: "дедушка", generation: 2, line: "материнская", birthDate: "1788-04-24", deathDate: "1855-03-10", birthPlace: "Франкфурт-на-Майне", occupation: "Глава неаполитанского банка" },
+      { name: "Адельгейд Герц", relation: "бабушка", generation: 2, line: "материнская", birthDate: "1800", deathDate: "1853" },
+      { name: "Джеймс Майер де Ротшильд", relation: "двоюродный дедушка", generation: 2, line: "общая", birthDate: "1792-05-15", deathDate: "1868-11-15", birthPlace: "Франкфурт-на-Майне", occupation: "Основатель de Rothschild Frères, Париж" },
+      { name: "Лайонел де Ротшильд", relation: "отец", generation: 3, line: "отцовская", birthDate: "1808-11-22", deathDate: "1879-06-03", birthPlace: "Лондон", occupation: "Банкир, член парламента" },
+      { name: "Шарлотта фон Ротшильд", relation: "мать", generation: 3, line: "материнская", birthDate: "1819-06-13", deathDate: "1884-03-13", birthPlace: "Франкфурт-на-Майне", occupation: "Меценат" },
+      { name: "Альфонс де Ротшильд", relation: "двоюродный дядя", generation: 3, line: "общая", birthDate: "1827-02-01", deathDate: "1905-05-26", birthPlace: "Париж", occupation: "Банкир, регент Банка Франции" },
+      { name: "Натаниэль (Натти) Ротшильд", relation: "я", generation: 4, line: "общая", birthDate: "1840-11-08", deathDate: "1915-03-31", birthPlace: "Лондон", occupation: "Банкир, первый барон Ротшильд" },
+      { name: "Леопольд де Ротшильд", relation: "брат", generation: 4, line: "общая", birthDate: "1845-11-22", deathDate: "1917-05-29", birthPlace: "Лондон", occupation: "Банкир, коннозаводчик" }
+    ]),
+    events: ex([
+      { year: 1769, title: "Придворный агент", text: "Майер Амшель получает звание придворного поставщика ландграфа Гессен-Ганау." },
+      { year: 1798, title: "Натан уезжает в Англию", text: "Третий сын начинает с торговли тканями в Манчестере, затем переезжает в Лондон." },
+      { year: 1810, title: "Основан дом «Майер Амшель Ротшильд и сыновья»", text: "Отец делает сыновей партнёрами семейного дела." },
+      { year: 1817, title: "Парижский банк", text: "Джеймс открывает de Rothschild Frères." },
+      { year: 1822, title: "Баронский титул", text: "Император Австрии жалует пятерым братьям баронское достоинство." },
+      { year: 1858, title: "Лайонел в парламенте", text: "Первый иудей, занявший место в британской Палате общин." },
+      { year: 1875, title: "Акции Суэцкого канала", text: "Лондонский дом за несколько дней ссужает правительству Дизраэли 4 млн фунтов." }
+    ]),
+    assets: ex([
+      { name: "Квартира на Абая, 4 комнаты", kind: "Недвижимость", value: 85000000, owner: "Лайонел и Шарлотта" },
+      { name: "Депозит «Семейный»", kind: "Вклад", value: 12000000, owner: "Шарлотта", note: "Ставка 14,5 %, капитализация ежемесячно" },
+      { name: "Toyota Camry, 2022", kind: "Транспорт", value: 9500000, owner: "Лайонел" },
+      { name: "Коллекция старинных монет", kind: "Ценности", value: 3200000, owner: "Семья", note: "Начата прадедом" }
+    ]),
+    debts: ex([
+      { name: "Ипотека за квартиру", lender: "Отбасы банк", total: 40000000, balance: 28500000, monthly: 420000, rate: 7, endDate: "2034-05-01" },
+      { name: "Автокредит", lender: "Халык банк", total: 6000000, balance: 2100000, monthly: 210000, rate: 14, endDate: "2027-06-01" }
+    ]),
+    tx: ex([
+      ["2026-04-05", "Доход", "Зарплата", 850000, "Лайонел"],
+      ["2026-04-10", "Расход", "Жильё и коммуналка", 95000, "Шарлотта"],
+      ["2026-04-15", "Расход", "Кредиты", 630000, "Лайонел", "Ипотека и автокредит"],
+      ["2026-04-20", "Расход", "Продукты", 180000, "Шарлотта"],
+      ["2026-05-05", "Доход", "Зарплата", 850000, "Лайонел"],
+      ["2026-05-12", "Доход", "Подработка", 150000, "Шарлотта", "Перевод статьи"],
+      ["2026-05-15", "Расход", "Кредиты", 630000, "Лайонел"],
+      ["2026-05-22", "Расход", "Отдых и развлечения", 120000, "Семья", "Выходные в Бурабае"],
+      ["2026-06-05", "Доход", "Зарплата", 850000, "Лайонел"],
+      ["2026-06-15", "Расход", "Кредиты", 630000, "Лайонел"],
+      ["2026-06-18", "Расход", "Продукты", 175000, "Шарлотта"],
+      ["2026-06-25", "Расход", "Образование", 90000, "Натти", "Летняя школа"],
+      ["2026-07-05", "Доход", "Зарплата", 850000, "Лайонел"],
+      ["2026-07-15", "Расход", "Кредиты", 630000, "Лайонел"],
+      ["2026-07-20", "Расход", "Отдых и развлечения", 260000, "Семья", "Иссык-Куль"],
+      ["2026-08-05", "Доход", "Зарплата", 850000, "Лайонел"],
+      ["2026-08-15", "Расход", "Кредиты", 630000, "Лайонел"],
+      ["2026-08-28", "Расход", "Одежда", 140000, "Натти, Леопольд", "К школе"],
+      ["2026-09-05", "Доход", "Зарплата", 850000, "Лайонел"],
+      ["2026-09-10", "Доход", "Проценты и дивиденды", 96000, "Шарлотта", "Проценты по депозиту"],
+      ["2026-09-12", "Расход", "Жильё и коммуналка", 98000, "Шарлотта"],
+      ["2026-09-15", "Расход", "Кредиты", 630000, "Лайонел"],
+      ["2026-09-20", "Расход", "Продукты", 190000, "Шарлотта"]
+    ].map(([date, type, category, amount, who, note]) => ({ date, type, category, amount, who, note: note || "" }))),
+    plans: ex([
+      { title: "Оцифровать семейный архив", area: "Развитие семьи", status: "В работе", who: "Все", due: "2026-12-31", budget: 150000, progress: 40, note: "Письма братьев 1810–1850-х, сканировать и подписать." },
+      { title: "Курсы английского", area: "Обучение детей", status: "В работе", who: "Натти", due: "2027-05-31", budget: 480000, progress: 25, note: "Два раза в неделю, цель — уровень B2." },
+      { title: "Поездка во Франкфурт", area: "Отдых и развлечения", status: "Идея", who: "Вся семья", due: "2027-07-15", budget: 1800000, progress: 0, note: "Посмотреть место, где начиналась семья." },
+      { title: "Новый семейный автомобиль", area: "Крупные покупки", status: "Идея", who: "Лайонел", due: "2027-09-01", budget: 12000000, progress: 10, note: "После закрытия автокредита." },
+      { title: "Ремонт кухни", area: "Дом", status: "В работе", who: "Шарлотта", due: "2026-09-01", budget: 2500000, progress: 60, note: "Осталось заменить столешницу и свет." },
+      { title: "Ежегодный медосмотр", area: "Здоровье", status: "Готово", who: "Вся семья", due: "2026-06-30", budget: 220000, progress: 100 }
+    ])
+  };
 }
 
-/* ============ Данные ============ */
-function myItems() { return (Store.get(REQ + ME, { items: [] }).items || []); }
-function allItems() {
-  return Store.keys(REQ).flatMap(k => {
-    const owner = k.slice(REQ.length);
-    return (Store.get(k, { items: [] }).items || []).map(it => ({ ...it, owner }));
-  }).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+/* ---------- Хранилище ---------- */
+function load() {
+  try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch (e) {}
+  return seed();
 }
-function addItem(item) {
-  const key = REQ + ME;
-  const doc = Store.get(key, { items: [] });
-  doc.items = [item, ...(doc.items || [])].slice(0, 100);
-  doc.updatedAt = new Date().toISOString();
-  if (!Store.set(key, doc)) return false;
-  return (Store.get(key, { items: [] }).items || []).some(x => x.id === item.id);
+let db = load();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {} }
+function pref(k, v) {
+  try { if (v === undefined) return localStorage.getItem("fb-" + k); localStorage.setItem("fb-" + k, v); } catch (e) { return null; }
 }
-function updateItem(owner, id, patch) {
-  const key = REQ + owner;
-  const doc = Store.get(key, { items: [] });
-  const it = (doc.items || []).find(x => x.id === id);
-  if (!it) return false;
-  Object.assign(it, patch, { updatedAt: new Date().toISOString() });
-  doc.updatedAt = it.updatedAt;
-  return Store.set(key, doc);
-}
-function ideas() { return Store.get('akv.ideas', []).sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 60); }
+let canEdit = pref("mode") !== "view";
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const docCount = () => ["members", "events", "tx", "assets", "debts", "plans"].reduce((s, k) => s + db[k].length, 1);
 
-/* ============ Разметка ============ */
-function header() {
-  const links = [['ann', 'nav_ann'], ['rules', 'nav_rules'], ['policies', 'nav_policies'], ['forms', 'nav_forms'], ['info', 'nav_info'], ['my', 'nav_my']];
-  if (role === 'hr') links.push(['hr', 'nav_hr']);
-  return `<div class="wrap top-in">
-    <a class="logo" href="#top" aria-label="Аквилон · ${t('people')}"><span class="logo-mark">А</span><span class="logo-txt"><b>Аквилон</b> · ${t('people')}</span></a>
-    <nav class="nav" aria-label="Разделы">${links.map(([id, k]) => `<a href="#${id}"${id === 'hr' ? ' class="hr-link"' : ''}>${t(k)}</a>`).join('')}</nav>
-    <div class="top-act">
-      <div class="lang" role="group" aria-label="Язык / Тіл">
-        <button data-act="lang" data-v="ru" aria-pressed="${lang === 'ru'}">RU</button>
-        <button data-act="lang" data-v="kk" aria-pressed="${lang === 'kk'}">ҚАЗ</button>
-      </div>
-      <button class="btn btn-primary btn-sm ask-top" data-act="ask">${ic('chat')}${t('ask')}</button>
-    </div>
-  </div>`;
+/* ---------- Утилиты ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nbsp = (s) => s.replace(/ /g, " ");
+const money = (n) => nbsp(Math.round(n || 0).toLocaleString("ru-RU")) + " ₸";
+function compact(n) {
+  const a = Math.abs(n), sign = n < 0 ? "−" : "";
+  const f = (v) => v.toLocaleString("ru-RU", { maximumFractionDigits: v < 10 ? 1 : 0 });
+  if (a >= 1e9) return sign + f(a / 1e9) + " млрд ₸";
+  if (a >= 1e6) return sign + f(a / 1e6) + " млн ₸";
+  if (a >= 1e4) return sign + f(a / 1e3) + " тыс. ₸";
+  return sign + money(a);
+}
+const initials = (name) => name.replace(/\(.*?\)/g, "").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+function parseD(s) {
+  if (!s) return null;
+  const m = String(s).match(/^(\d{4})(?:-(\d{2})-(\d{2}))?$/);
+  if (!m) return null;
+  return { y: +m[1], mo: m[2] ? +m[2] : null, d: m[3] ? +m[3] : null };
+}
+function fmtD(s) {
+  const p = parseD(s); if (!p) return s || "";
+  return p.mo ? String(p.d).padStart(2, "0") + "." + String(p.mo).padStart(2, "0") + "." + p.y : String(p.y);
+}
+function years(from, to) {
+  let a = to.y - from.y;
+  if (from.mo && to.mo && (to.mo < from.mo || (to.mo === from.mo && to.d < from.d))) a--;
+  return a;
+}
+function plural(n, one, few, many) {
+  const m10 = n % 10, m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return few;
+  return many;
+}
+const TODAY = new Date();
+const todayP = { y: TODAY.getFullYear(), mo: TODAY.getMonth() + 1, d: TODAY.getDate() };
+function lifeText(m) {
+  const b = parseD(m.birthDate), d = parseD(m.deathDate);
+  if (!b) return d ? "† " + d.y : "";
+  if (d) { const a = years(b, d); return b.y + "–" + d.y + " · " + a + " " + plural(a, "год", "года", "лет"); }
+  const a = years(b, todayP); return a + " " + plural(a, "год", "года", "лет");
+}
+const ageOnly = (m) => { const b = parseD(m.birthDate); if (!b) return ""; const d = parseD(m.deathDate); const a = years(b, d || todayP); return d ? "† в " + a : String(a); };
+const ym = (s) => s.slice(0, 7);
+const ymLabel = (k) => MONTHS[+k.slice(5, 7) - 1] + " " + k.slice(0, 4);
+function shiftYm(k, n) { const d = new Date(+k.slice(0, 4), +k.slice(5, 7) - 1 + n, 1); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0"); }
+const exTag = (o) => (o.example ? ' <span class="tag ex">пример</span>' : "");
+const editBtn = (col, id, label = "Изменить") => canEdit ? `<button class="linkbtn" type="button" data-edit="${col}" data-id="${esc(id)}">${label}</button>` : "";
+const addBtn = (col, label) => canEdit ? `<button class="btn small" type="button" data-add="${col}">+ ${label}</button>` : "";
+
+/* ---------- Состояние ---------- */
+const TABS = ["history", "assets", "plans"];
+let tab = TABS.includes(location.hash.slice(1)) ? location.hash.slice(1) : (TABS.includes(pref("tab")) ? pref("tab") : "history");
+let month = null;
+let area = "all";
+
+/* ---------- Шапка ---------- */
+function renderHeader() {
+  $("#famName").textContent = db.family.name || "Семья";
+  $("#famMotto").textContent = db.family.motto || "";
+  $("#famMotto").hidden = !db.family.motto;
+  document.title = (db.family.name || "Семейная книга");
+  const r = $("#rights");
+  r.textContent = canEdit ? "Вы можете вносить изменения" : "Только просмотр";
+  r.classList.toggle("ro", !canEdit);
+  $("#editFamily").hidden = !canEdit;
+  $("#toggleMode").textContent = canEdit ? "Смотреть как ребёнок" : "Вернуть редактирование";
+  document.querySelectorAll("nav.tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
+  TABS.forEach((t) => ($("#panel-" + t).hidden = t !== tab));
 }
 
-function secHead(n, title, sub, extra = '') {
-  return `<div class="sec-head"><div><div class="sec-num">${n}</div><h2>${title}</h2>${sub ? `<p>${sub}</p>` : ''}</div>${extra}</div>`;
-}
+/* ---------- История ---------- */
+function renderHistory() {
+  const lineIdx = (l) => { const i = LINES.indexOf(l); return i < 0 ? 9 : i; };
+  const byGen = {};
+  db.members.forEach((m) => (byGen[m.generation || 3] = byGen[m.generation || 3] || []).push(m));
+  let gens = "";
+  Object.keys(GEN).forEach((g) => {
+    const list = (byGen[g] || []).slice().sort((a, b) => lineIdx(a.line) - lineIdx(b.line) || String(a.birthDate || "").localeCompare(String(b.birthDate || "")));
+    if (!list.length) return;
+    gens += `<div class="gen"><div class="gen-label">${GEN[g]}<small>${list.length} ${plural(list.length, "человек", "человека", "человек")}</small></div><div class="people">` +
+      list.map((m) => `<button type="button" class="person${m.deathDate ? " dead" : ""}" data-person="${esc(m.id)}">
+        <span class="avatar" aria-hidden="true">${esc(initials(m.name))}</span>
+        <span style="min-width:0"><span class="p-name">${esc(m.name)}</span><br>
+        <span class="p-meta">${esc(m.relation || "")}${m.relation ? " · " : ""}<span class="num">${esc(lifeText(m))}</span></span>
+        ${m.line && m.line !== "общая" ? `<br><span class="line-mark">линия ${esc(m.line === "отцовская" ? "отца" : "матери")}</span>` : ""}</span>
+      </button>`).join("") + `</div></div>`;
+  });
+  if (!gens) gens = `<p class="empty">В родословной пока никого нет. ${canEdit ? "Добавьте первого человека." : ""}</p>`;
 
-function hero() {
-  const ed = parseDay(EVENT.date);
-  const mon = new Intl.DateTimeFormat(loc(), { month: 'short' }).format(ed).replace('.', '');
-  return `<section class="hero"><div class="wrap hero-grid">
+  const story = (db.family.story || "").split(/\n\s*\n/).filter(Boolean).map((p) => `<p>${esc(p)}</p>`).join("");
+  const events = db.events.slice().sort((a, b) => a.year - b.year);
+
+  const rows = db.members.slice().sort((a, b) => (a.generation - b.generation) || String(a.birthDate || "").localeCompare(String(b.birthDate || "")));
+
+  $("#panel-history").innerHTML = `
     <div>
-      <span class="kicker">${ic('book')}${t('kicker')}</span>
-      <h1>${t('hero_title')}</h1>
-      <p class="hero-sub">${t('hero_sub')}</p>
-      <div class="quick">
-        <button class="btn btn-primary" data-act="request" data-type="vacation">${ic('sun')}${t('qa_vac')}</button>
-        <button class="btn btn-ghost" data-act="meet">${ic('cal')}${t('qa_meet')}</button>
-        <button class="btn btn-ghost" data-act="ask">${ic('chat')}${t('qa_ask')}</button>
-      </div>
-      <div class="event">
-        <div class="event-date"><div><b>${ed.getDate()}</b><span>${esc(mon)}</span></div></div>
-        <div><small>${t('event')}</small><p>${esc(L(EVENT.title))}</p><p class="meta">${EVENT.time} · ${esc(L(EVENT.place))}</p></div>
+      <div class="sec-head"><h2>Родословная</h2>${addBtn("members", "Добавить человека")}</div>
+      <div class="sheet">${gens}</div>
+    </div>
+    <div>
+      <div class="sec-head"><h2>История</h2><div style="display:flex;gap:12px;align-items:center">${canEdit ? '<button class="linkbtn" type="button" data-edit="family" data-id="main">Изменить вступление</button>' : ""}${addBtn("events", "Добавить событие")}</div></div>
+      <div class="sheet">
+        <div class="story">${story || '<p class="muted">Вступление о семье ещё не написано.</p>'}</div>
+        ${events.length ? `<ol class="timeline">${events.map((e) => `<li><div class="t-year num">${esc(e.year)}</div><div class="t-body"><div class="t-title">${esc(e.title)}${exTag(e)}</div>${e.text ? `<div class="t-text">${esc(e.text)}</div>` : ""}${editBtn("events", e.id)}</div></li>`).join("")}</ol>` : '<p class="empty">Событий в хронике пока нет.</p>'}
       </div>
     </div>
-    <aside class="memo" aria-label="${t('memo')}">
-      <h2>${ic('bulb')}${t('memo')}</h2>
-      <ul>
-        <li><b>24</b><span>${t('memo1')}</span></li>
-        <li><b>${lang === 'kk' ? '5, 20' : '5 и 20'}</b><span>${t('memo2')}</span></li>
-        <li><b>14</b><span>${t('memo3')}</span></li>
-        <li><b>1</b><span>${t('memo4')}</span></li>
-      </ul>
-    </aside>
-  </div></section>`;
-}
-
-function announcements() {
-  const m = ANN.main;
-  return `<section class="sec" id="ann"><div class="wrap">
-    ${secHead('01', t('s_ann'), t('s_ann_sub'))}
-    <div class="ann-grid">
-      <article class="card ann-main">
-        <span class="tag">${t('important')}</span>
-        <h3>${esc(L(m.title))}</h3>
-        <p>${esc(L(m.text))}</p>
-        <button class="btn" data-act="ask" data-topic="${m.topic}" data-text="${esc(L(m.title))}">${t('clarify')}</button>
-      </article>
-      <div class="feed">${ANN.feed.map(a => {
-        const d = parseDay(a.date);
-        const cls = a.cat === 'changes' ? 'warn' : a.cat === 'event' ? 'ok' : '';
-        return `<article class="card feed-item">
-          <div class="feed-date"><b>${d.getDate()}</b><span>${esc(new Intl.DateTimeFormat(loc(), { month: 'short' }).format(d).replace('.', ''))}</span></div>
-          <div><span class="tag ${cls}">${t('cat_' + a.cat)}</span><h3>${esc(L(a.title))}</h3><p>${esc(L(a.text))}</p></div>
-        </article>`;
-      }).join('')}</div>
-    </div>
-  </div></section>`;
-}
-
-function rules() {
-  return `<section class="sec alt" id="rules"><div class="wrap">
-    ${secHead('02', t('s_rules'), t('s_rules_sub'))}
-    <div class="docs">${DOCS.map(d => `<details class="card doc">
-      <summary><span class="doc-code">${esc(d.code)}</span><span class="doc-t"><b>${esc(L(d.title))}</b><span>${esc(I18N[lang].rev(fmtDay(d.date)))}</span></span>${ic('chev', 'chev')}</summary>
-      <div class="doc-body">
-        <p>${esc(L(d.desc))}</p>
-        <h4>${t('key_points')}</h4>
-        <ul>${L(d.points).map(p => `<li>${esc(p)}</li>`).join('')}</ul>
-        <button class="btn btn-soft btn-sm" data-act="ask" data-topic="docs" data-text="${esc(I18N[lang].req_full_text(d.code, L(d.title)))}">${ic('doc')}${t('req_full')}</button>
-      </div>
-    </details>`).join('')}</div>
-  </div></section>`;
-}
-
-function procPanel() {
-  const p = PROCS[procIdx];
-  return `<span class="tag ${p.type === 'policy' ? 'warn' : ''}">${t('type_' + p.type)}</span>
-    <h3>${esc(L(p.title))}</h3><p>${esc(L(p.desc))}</p>
-    <ol class="steps">${p.steps.map(([h, d]) => `<li><b>${esc(L(h))}</b><span>${esc(L(d))}</span></li>`).join('')}</ol>
-    <div class="row">
-      ${p.form ? `<button class="btn btn-primary" data-act="request" data-type="${p.form}">${ic('doc')}${t('fill_form')}</button>` : ''}
-      <button class="btn btn-ghost" data-act="ask" data-topic="${p.topic}" data-text="${esc(L(p.title))}: ">${ic('chat')}${t('ask_topic')}</button>
+    <div>
+      <div class="sec-head"><h2>Состав семьи</h2><span class="muted" style="font-size:.85rem">Нажмите на строку, чтобы открыть карточку</span></div>
+      <div class="sheet tbl-wrap"><table>
+        <thead><tr><th>Имя</th><th>Кем приходится</th><th>Дата рождения</th><th class="r">Возраст</th><th>Занятие</th><th>Контакты</th></tr></thead>
+        <tbody>${rows.map((m) => `<tr class="click${m.deathDate ? " dead" : ""}" tabindex="0" data-person="${esc(m.id)}"><td>${esc(m.name)}${exTag(m)}</td><td>${esc(m.relation || "")}</td><td class="num">${esc(fmtD(m.birthDate))}</td><td class="r">${esc(ageOnly(m))}</td><td>${esc(m.occupation || "")}</td><td>${[m.phone, m.email].filter(Boolean).map(esc).join("<br>") || '<span class="muted">—</span>'}</td></tr>`).join("")}</tbody>
+      </table></div>
     </div>`;
 }
-function policies() {
-  return `<section class="sec" id="policies"><div class="wrap">
-    ${secHead('03', t('s_pol'), t('s_pol_sub'))}
-    <div class="proc">
-      <div class="tabs" role="tablist" aria-orientation="vertical" id="procTabs">${PROCS.map((p, i) => `<button class="tab" role="tab" id="ptab${i}" aria-controls="procPanel" aria-selected="${i === procIdx}" tabindex="${i === procIdx ? 0 : -1}" data-act="tab" data-i="${i}"><small>${t('type_' + p.type)}</small>${esc(L(p.title))}</button>`).join('')}</div>
-      <div class="card panel" role="tabpanel" id="procPanel" aria-labelledby="ptab${procIdx}">${procPanel()}</div>
-    </div>
-  </div></section>`;
-}
 
-function forms() {
-  return `<section class="sec alt" id="forms"><div class="wrap">
-    ${secHead('04', t('s_forms'), t('s_forms_sub'))}
-    <div class="svc">${SERVICES.map(s => `<article class="card svc-card">
-      <div class="svc-ic">${ic(s.icon, '')}</div>
-      <h3>${esc(L(s.title))}</h3><p>${esc(L(s.desc))}</p>
-      <div class="svc-foot"><small>${t('term')}: <b>${esc(L(s.term))}</b></small><button class="btn btn-soft btn-sm" data-act="request" data-type="${s.id}">${t('apply')}</button></div>
-    </article>`).join('')}</div>
-  </div></section>`;
+/* ---------- Активы ---------- */
+function monthStats(k) {
+  const s = { inc: 0, exp: 0, cats: {} };
+  db.tx.forEach((t) => {
+    if (ym(t.date) !== k) return;
+    if (t.type === "Доход") s.inc += +t.amount; else { s.exp += +t.amount; s.cats[t.category] = (s.cats[t.category] || 0) + +t.amount; }
+  });
+  return s;
 }
-
-function contactRow(icon, label, value) {
-  return `<div class="contact"><span class="svc-ic">${ic(icon, '')}</span><div><small>${label}</small><b>${esc(value)}</b></div><button class="btn btn-ghost btn-sm" data-act="copy" data-v="${esc(value)}" aria-label="${t('copy')}: ${esc(value)}">${ic('copy')}<span class="sr">${t('copy')}</span></button></div>`;
+function niceStep(raw) {
+  const p = Math.pow(10, Math.floor(Math.log10(raw || 1)));
+  const n = raw / p;
+  return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * p;
 }
-function info() {
-  return `<section class="sec" id="info"><div class="wrap">
-    ${secHead('05', t('s_info'), t('s_info_sub'))}
-    <div class="info-grid">
-      <div class="card contacts" aria-label="${t('contacts')}">
-        ${contactRow('phone', t('hotline'), CONTACTS.phone)}
-        ${contactRow('mail', t('email'), CONTACTS.email)}
-        ${contactRow('send', t('telegram'), CONTACTS.telegram)}
-      </div>
-      <div>
-        <div class="faq">${FAQ.map(f => `<details class="card"><summary><span>${esc(L(f.q))}</span>${ic('chev', 'chev')}</summary><p>${esc(L(f.a))}</p></details>`).join('')}</div>
-      </div>
-    </div>
-    <h3 class="sub-h">${t('team')}</h3>
-    <div class="team">${TEAM.map(p => `<article class="card person">
-      <div class="person-top"><span class="avatar" aria-hidden="true">${esc(initials(L(p.name)))}</span><div><h3>${esc(L(p.name))}</h3><p>${esc(L(p.role))}</p></div></div>
-      <div class="tags">${p.tags.map(x => `<span class="tag plain">${esc(L(x))}</span>`).join('')}</div>
-      <div class="mail">${ic('mail')}<span>${esc(p.email)}</span><button class="btn-link" data-act="copy" data-v="${esc(p.email)}">${t('copy')}</button></div>
-      <div class="row"><button class="btn btn-soft btn-sm" data-act="meet" data-spec="${p.id}">${ic('cal')}${t('book')}</button><button class="btn btn-ghost btn-sm" data-act="ask" data-spec="${p.id}">${ic('chat')}${t('write')}</button></div>
-    </article>`).join('')}</div>
-  </div></section>`;
-}
-
-function noSendNote() {
-  return `<div class="note">${role === 'viewer' && Store.ok ? t('ro_msg') : t('ns_msg')}
-    <ul><li>${t('hotline')}: <b>${esc(CONTACTS.phone)}</b></li><li>${t('email')}: <b>${esc(CONTACTS.email)}</b></li><li>${t('telegram')}: <b>${esc(CONTACTS.telegram)}</b></li></ul></div>`;
-}
-
-function myAndIdeas() {
-  return `<section class="sec alt" id="my"><div class="wrap two">
-    <div>${secHead('06', t('s_my'), t('s_my_sub'))}<div class="list" id="myList"></div></div>
-    <div id="ideas">${secHead('07', t('s_ideas'), t('s_ideas_sub'))}
-      ${canSend() ? `<form class="card idea-form" id="ideaForm" novalidate>
-        <div class="field"><label for="ideaCat">${t('idea_topic')}</label><select id="ideaCat" name="category">${IDEA_CATS.map(c => `<option value="${c}">${t('ic_' + c)}</option>`).join('')}</select></div>
-        <div class="field"><label for="ideaText">${t('idea_text')}</label><textarea id="ideaText" name="text" maxlength="600" placeholder="${t('idea_ph')}"></textarea><div class="err" id="ideaErr"></div><div class="counter-chars" id="ideaCount">0 / 600 ${t('chars')}</div></div>
-        <div><button class="btn btn-primary" type="submit">${ic('bulb')}${t('publish')}</button></div>
-      </form>` : `<div style="margin-bottom:16px">${noSendNote()}</div>`}
-      <div class="list" id="ideasList"></div>
-    </div>
-  </div></section>`;
-}
-
-function hrPanel() {
-  if (role !== 'hr') return '';
-  return `<section class="sec hr-sec" id="hr"><div class="wrap">
-    ${secHead('HR', t('s_hr'), t('s_hr_sub'))}
-    <div id="hrBody"></div>
-  </div></section>`;
-}
-
-function footer() {
-  return `<div class="wrap">
-    <div class="foot">
-      <div><h3>Аквилон · ${t('people')}</h3><p>${t('foot_dept')}</p></div>
-      <div><h3>${t('foot_addr')}</h3><p>${esc(L(CONTACTS.address))}</p><h3 style="margin-top:14px">${t('foot_hours')}</h3><p>${esc(L(CONTACTS.hours))}</p></div>
-      <div><h3>${t('foot_contacts')}</h3><p>${esc(CONTACTS.phone)}</p><p>${esc(CONTACTS.email)}</p><p>Telegram ${esc(CONTACTS.telegram)}</p></div>
-    </div>
-    <div class="demo">
-      <span>${t('demo_note')}</span>
-      <div class="filters" role="group" aria-label="${t('demo_role')}"><span style="align-self:center">${t('demo_role')}</span>
-        ${['employee', 'viewer', 'hr'].map(r => `<button class="chip" data-act="role" data-v="${r}" aria-pressed="${role === r}">${t('r_' + r)}</button>`).join('')}
-      </div>
-    </div>
-  </div>`;
-}
-
-function fab() {
-  return `<div class="fab-menu" id="fabMenu" role="menu" aria-label="${t('fab')}">
-      <button role="menuitem" data-act="ask">${ic('chat')}<span>${t('ask')}<small>${t('fab_ask_s')}</small></span></button>
-      <button role="menuitem" data-act="meet">${ic('cal')}<span>${t('qa_meet')}<small>${t('fab_meet_s')}</small></span></button>
-      <button role="menuitem" data-act="request">${ic('doc')}<span>${t('fab_request')}<small>${t('fab_req_s')}</small></span></button>
-      <button role="menuitem" data-act="idea">${ic('bulb')}<span>${t('fab_idea')}<small>${t('fab_idea_s')}</small></span></button>
-      <hr>
-      <button role="menuitem" data-act="copy" data-v="${esc(CONTACTS.phone)}">${ic('phone')}<span>${t('hotline')}<small>${esc(CONTACTS.phone)}</small></span></button>
-      <button role="menuitem" data-act="copy" data-v="${esc(CONTACTS.email)}">${ic('mail')}<span>${t('email')}<small>${esc(CONTACTS.email)}</small></span></button>
-    </div>
-    <button class="btn btn-primary fab-btn" id="fabBtn" data-act="fab" aria-expanded="false" aria-controls="fabMenu" aria-label="${t('fab')}">${ic('chat')}<span class="fab-label">${t('fab')}</span></button>`;
-}
-
-/* ---- динамические блоки ---- */
-function itemTitle(it) {
-  if (it.kind === 'request') { const s = SERVICES.find(x => x.id === it.type); return s ? L(s.title) : it.type; }
-  if (it.kind === 'question') return t('k_question') + ' · ' + t('t_' + it.type);
-  return t('k_meeting');
-}
-function itemMeta(it) {
-  const m = [`<span>${t('created')}: <b>${esc(fmtTs(it.createdAt))}</b></span>`];
-  if (it.kind !== 'request' || it.spec) m.push(`<span>${t('spec')}: <b>${esc(specName(it.spec))}</b></span>`);
-  if (it.from) m.push(`<span>${t('period')}: <b>${esc(fmtDay(it.from, { day: 'numeric', month: 'short' }))}${it.to ? ' — ' + esc(fmtDay(it.to, { day: 'numeric', month: 'short', year: 'numeric' })) : ''}</b></span>`);
-  if (it.day) m.push(`<span>${t('when')}: <b>${esc(fmtDay(it.day, { weekday: 'short', day: 'numeric', month: 'short' }))}, ${esc(it.slot)} · ${t(it.format === 'video' ? 'fmt_video' : 'fmt_office')}</b></span>`);
-  return `<div class="req-meta">${m.join('')}</div>`;
-}
-const stTag = s => `<span class="st st-${s}">${t('st_' + s)}</span>`;
-
-function renderMy() {
-  const el = document.getElementById('myList'); if (!el) return;
-  if (!Store.ok) { el.innerHTML = noSendNote(); return; }
-  const items = myItems();
-  el.innerHTML = items.length ? items.map(it => `<article class="card req">
-    <div class="req-top"><span class="tag plain">${t('k_' + it.kind)}</span><h3>${esc(itemTitle(it))}</h3>${stTag(it.status)}</div>
-    ${itemMeta(it)}
-    ${it.text ? `<p class="req-text">${esc(it.text)}</p>` : ''}
-    ${it.reply ? `<div class="reply"><small>${t('hr_reply')}</small>${esc(it.reply)}</div>` : ''}
-  </article>`).join('') : `<div class="empty">${t('my_empty')}</div>`;
-}
-
-function renderIdeas() {
-  const el = document.getElementById('ideasList'); if (!el) return;
-  const list = ideas();
-  el.innerHTML = list.length ? list.map(i => `<article class="card idea">
-    <span class="tag">${t('ic_' + i.category)}</span>
-    <p>${esc(i.text)}</p>
-    <div class="idea-foot"><span>${esc(fmtTs(i.createdAt))}</span>${role === 'hr' ? `<button class="btn-del" data-act="del-idea" data-id="${i.id}">${t('del')}</button>` : ''}</div>
-  </article>`).join('') : `<div class="empty">${t('ideas_empty')}</div>`;
-}
-
-function renderHr() {
-  const el = document.getElementById('hrBody'); if (!el) return;
-  const all = allItems();
-  const cnt = s => all.filter(x => x.status === s).length;
-  const list = hrFilter === 'all' ? all : all.filter(x => x.status === hrFilter);
-  el.innerHTML = `<div class="counters">
-      <div class="card counter c-new"><b>${cnt('new')}</b><span>${t('c_new')}</span></div>
-      <div class="card counter c-work"><b>${cnt('work')}</b><span>${t('c_work')}</span></div>
-      <div class="card counter c-done"><b>${cnt('done')}</b><span>${t('c_done')}</span></div>
-    </div>
-    <div class="filters" role="group">${['all', 'new', 'work', 'done'].map(f => `<button class="chip" data-act="filter" data-v="${f}" aria-pressed="${hrFilter === f}">${t('f_' + f)}</button>`).join('')}</div>
-    <div class="hr-list">${list.length ? list.map(it => `<article class="card hr-card">
-      <div class="req-top"><span class="tag plain">${t('k_' + it.kind)}</span><h3>${esc(itemTitle(it))}</h3>${stTag(it.status)}</div>
-      <div class="hr-who">${ic('user')} <b>${esc(it.owner === ME ? t('you') : (NAMES[it.owner] || it.owner))}</b></div>
-      ${itemMeta(it)}
-      ${it.text ? `<p class="req-text">${esc(it.text)}</p>` : ''}
-      <form class="hr-edit" data-owner="${esc(it.owner)}" data-id="${esc(it.id)}">
-        <div class="field"><label for="st-${it.id}">${t('status')}</label><select id="st-${it.id}" name="status">${['new', 'work', 'done'].map(s => `<option value="${s}"${it.status === s ? ' selected' : ''}>${t('st_' + s)}</option>`).join('')}</select></div>
-        <div class="field"><label for="rp-${it.id}">${t('reply')}</label><textarea id="rp-${it.id}" name="reply" rows="2" style="min-height:60px">${esc(it.reply || '')}</textarea></div>
-        <div class="full"><button class="btn btn-primary btn-sm" type="submit">${t('save')}</button></div>
-      </form>
-    </article>`).join('') : `<div class="empty" style="grid-column:1/-1">${t('hr_empty')}</div>`}</div>`;
-}
-
-function renderData() { renderMy(); renderIdeas(); renderHr(); }
-
-function renderAll() {
-  document.documentElement.lang = lang === 'kk' ? 'kk' : 'ru';
-  document.getElementById('hdr').innerHTML = header();
-  document.getElementById('main').innerHTML = hero() + announcements() + rules() + policies() + forms() + info() + myAndIdeas() + hrPanel();
-  document.getElementById('ftr').innerHTML = footer();
-  document.getElementById('fab').innerHTML = fab();
-  renderData();
-}
-
-/* ============ Диалоги и формы ============ */
-const dlg = document.getElementById('dlg');
-function openDialog(title, body) {
-  dlg.innerHTML = `<div class="dlg-head"><h2 id="dlgTitle">${title}</h2><button class="x" data-act="close" aria-label="${t('close')}">${ic('x')}</button></div><div class="dlg-body">${body}</div>`;
-  if (!dlg.open) dlg.showModal();
-  const f = dlg.querySelector('select, textarea, input'); if (f) f.focus();
-}
-const fieldErr = id => `<div class="err" id="${id}-err"></div>`;
-const specSelect = (sel, allowAny) => `<select id="f-spec" name="spec">${allowAny ? `<option value="">${t('any_spec')}</option>` : ''}${TEAM.map(p => `<option value="${p.id}"${sel === p.id ? ' selected' : ''}>${esc(L(p.name))} — ${esc(L(p.role))}</option>`).join('')}</select>`;
-const footBtns = () => `<div class="dlg-foot"><button type="button" class="btn btn-ghost" data-act="close">${t('cancel')}</button><button type="submit" class="btn btn-primary">${ic('send')}${t('send')}</button></div>`;
-
-function openForm(kind, preset = {}) {
-  closeFab();
-  if (!canSend()) { openDialog(t('dlg_nosend'), noSendNote()); return; }
-  if (kind === 'request') {
-    const type = preset.type || 'vacation';
-    openDialog(t('dlg_request'), `<form id="fReq" data-kind="request" novalidate class="dlg-body" style="padding:0">
-      <div class="field"><label for="f-type">${t('f_type')}</label><select id="f-type" name="type">${SERVICES.map(s => `<option value="${s.id}"${s.id === type ? ' selected' : ''}>${esc(L(s.title))}</option>`).join('')}</select></div>
-      <div class="grid2" id="f-dates">
-        <div class="field"><label for="f-from">${t('f_from')}</label><input type="date" id="f-from" name="from">${fieldErr('f-from')}</div>
-        <div class="field"><label for="f-to">${t('f_to')}</label><input type="date" id="f-to" name="to">${fieldErr('f-to')}</div>
-      </div>
-      <div class="field"><label for="f-comment" id="f-comment-lbl">${t('f_comment')}</label><textarea id="f-comment" name="text" maxlength="2000"></textarea>${fieldErr('f-comment')}</div>
-      ${footBtns()}
-    </form>`);
-    syncReqType();
-  } else if (kind === 'question') {
-    openDialog(t('dlg_question'), `<form id="fQ" data-kind="question" novalidate class="dlg-body" style="padding:0">
-      <div class="grid2">
-        <div class="field"><label for="f-topic">${t('f_topic')}</label><select id="f-topic" name="type">${TOPICS.map(x => `<option value="${x}"${x === (preset.topic || 'other') ? ' selected' : ''}>${t('t_' + x)}</option>`).join('')}</select></div>
-        <div class="field"><label for="f-spec">${t('spec')}</label>${specSelect(preset.spec || '', true)}</div>
-      </div>
-      <div class="field"><label for="f-text">${t('f_text')}</label><textarea id="f-text" name="text" maxlength="2000" placeholder="${t('f_text_ph')}">${esc(preset.text || '')}</textarea>${fieldErr('f-text')}</div>
-      ${footBtns()}
-    </form>`);
-    const ta = dlg.querySelector('#f-text'); ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length);
-  } else if (kind === 'meeting') {
-    openDialog(t('dlg_meeting'), `<form id="fM" data-kind="meeting" novalidate class="dlg-body" style="padding:0">
-      <div class="field"><label for="f-spec">${t('spec')}</label>${specSelect(preset.spec || TEAM[0].id, false)}</div>
-      <div class="field"><label for="f-day">${t('f_date')}</label><input type="date" id="f-day" name="day" min="${todayIso()}" value="${nextWeekday(1)}">${fieldErr('f-day')}</div>
-      <div class="field"><span class="lbl" id="slots-lbl">${t('f_time')}</span><div class="slots" id="f-slots" role="radiogroup" aria-labelledby="slots-lbl"></div>${fieldErr('f-slots')}</div>
-      <div class="field"><span class="lbl" id="fmt-lbl">${t('f_format')}</span><div class="slots" role="radiogroup" aria-labelledby="fmt-lbl">
-        <label class="opt"><input type="radio" name="format" value="office" checked><span>${t('fmt_office')}</span></label>
-        <label class="opt"><input type="radio" name="format" value="video"><span>${t('fmt_video')}</span></label>
-      </div></div>
-      <div class="field"><label for="f-about">${t('f_about')}</label><textarea id="f-about" name="text" maxlength="1000" placeholder="${t('f_about_ph')}" style="min-height:72px"></textarea></div>
-      ${footBtns()}
-    </form>`);
-    renderSlots();
+function chart(endK) {
+  const ks = []; for (let i = 5; i >= 0; i--) ks.push(shiftYm(endK, -i));
+  const data = ks.map((k) => Object.assign({ k }, monthStats(k)));
+  const max = Math.max(1, ...data.map((d) => Math.max(d.inc, d.exp)));
+  const step = niceStep(max / 4), top = Math.ceil(max / step) * step;
+  const W = 640, H = 260, L = 64, R = 8, T = 14, B = 34;
+  const cw = (W - L - R) / 6, bw = Math.min(26, cw * 0.3);
+  const y = (v) => T + (H - T - B) * (1 - v / top);
+  let g = "";
+  for (let v = 0; v <= top + 1e-6; v += step) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${esc(compact(v).replace(/ ₸/, ""))}</text>`;
   }
+  data.forEach((d, i) => {
+    const cx = L + cw * i + cw / 2;
+    const sel = d.k === endK;
+    g += `<rect x="${cx - bw - 2}" y="${y(d.inc)}" width="${bw}" height="${Math.max(0, y(0) - y(d.inc))}" rx="3" fill="var(--inc)"/>`;
+    g += `<rect x="${cx + 2}" y="${y(d.exp)}" width="${bw}" height="${Math.max(0, y(0) - y(d.exp))}" rx="3" fill="var(--exp)"/>`;
+    g += `<text x="${cx}" y="${H - 12}" text-anchor="middle" font-size="12" fill="${sel ? "var(--ink)" : "var(--muted)"}" font-weight="${sel ? 700 : 400}">${MONTHS_SHORT[+d.k.slice(5, 7) - 1]}</text>`;
+    g += `<rect class="hit" x="${L + cw * i}" y="${T}" width="${cw}" height="${H - T - B}" fill="transparent" data-i="${i}"/>`;
+  });
+  return { svg: `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Доходы и расходы за шесть месяцев">${g}</svg>`, data, W, cw, L };
+}
+function renderAssets() {
+  const months = [...new Set(db.tx.map((t) => ym(t.date)))].sort();
+  const nowK = todayP.y + "-" + String(todayP.mo).padStart(2, "0");
+  if (!months.includes(nowK)) months.push(nowK);
+  months.sort();
+  if (!month || !months.includes(month)) month = months.filter((k) => db.tx.some((t) => ym(t.date) === k)).pop() || nowK;
+
+  const assetsTotal = db.assets.reduce((s, a) => s + +a.value, 0);
+  const debtBal = db.debts.reduce((s, d) => s + +d.balance, 0);
+  const net = assetsTotal - debtBal;
+  const ms = monthStats(month);
+  const bal = ms.inc - ms.exp;
+  const c = chart(month);
+  const cats = Object.entries(ms.cats).sort((a, b) => b[1] - a[1]);
+  const txs = db.tx.filter((t) => ym(t.date) === month).sort((a, b) => a.date.localeCompare(b.date));
+  const assets = db.assets.slice().sort((a, b) => b.value - a.value);
+  const monthly = db.debts.reduce((s, d) => s + (+d.monthly || 0), 0);
+
+  $("#panel-assets").innerHTML = `
+    <div class="tiles">
+      <div class="tile"><div class="eyebrow">Имущество и сбережения</div><div class="val">${compact(assetsTotal)}</div><div class="sub">${db.assets.length} ${plural(db.assets.length, "позиция", "позиции", "позиций")}</div></div>
+      <div class="tile"><div class="eyebrow">Долги и кредиты</div><div class="val neg">${compact(debtBal)}</div><div class="sub">остаток по ${db.debts.length} ${plural(db.debts.length, "кредиту", "кредитам", "кредитам")}</div></div>
+      <div class="tile net"><div class="eyebrow">Чистый капитал</div><div class="val">${compact(net)}</div><div class="sub">активы − остаток долгов</div></div>
+      <div class="tile"><div class="eyebrow">Баланс · ${ymLabel(month)}</div><div class="val ${bal >= 0 ? "pos" : "neg"}">${bal >= 0 ? "+" : "−"}${compact(Math.abs(bal))}</div><div class="sub">доходы ${compact(ms.inc)} · расходы ${compact(ms.exp)}</div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="sheet">
+        <h3>Доходы и расходы за полгода</h3>
+        <div class="chart-box" id="chartBox">${c.svg}<div class="tip" id="tip" hidden></div></div>
+        <div class="legend"><span><i class="sw" style="background:var(--inc)"></i>Доходы</span><span><i class="sw" style="background:var(--exp)"></i>Расходы</span></div>
+      </div>
+      <div class="sheet">
+        <h3>Куда ушли деньги</h3>
+        <div class="muted" style="font-size:.85rem">${ymLabel(month)} · всего ${money(ms.exp)}</div>
+        ${cats.length ? `<div class="cats">${cats.map(([k, v]) => { const p = ms.exp ? v / ms.exp * 100 : 0; return `<div class="cat-row"><span>${esc(k)}</span><span class="num">${money(v)} · ${Math.round(p)}%</span><div class="cat-bar"><i style="width:${p.toFixed(1)}%"></i></div></div>`; }).join("")}</div>` : '<p class="empty">В этом месяце расходов нет.</p>'}
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-head"><h2>Журнал операций</h2>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <label class="month-pick" for="monthSel">Месяц <select id="monthSel">${months.slice().reverse().map((k) => `<option value="${k}"${k === month ? " selected" : ""}>${ymLabel(k)}</option>`).join("")}</select></label>
+          ${addBtn("tx", "Добавить операцию")}
+        </div>
+      </div>
+      <div class="sheet">
+        ${txs.length ? `<div class="tbl-wrap"><table>
+          <thead><tr><th>Дата</th><th>Категория</th><th>Кто</th><th>Комментарий</th><th class="r">Сумма</th>${canEdit ? "<th></th>" : ""}</tr></thead>
+          <tbody>${txs.map((t) => `<tr><td class="num">${fmtD(t.date)}</td><td><span class="type-dot" style="background:var(${t.type === "Доход" ? "--inc" : "--exp"})" aria-hidden="true"></span>${esc(t.category)} <span class="muted" style="font-size:.78rem">${t.type === "Доход" ? "доход" : "расход"}</span>${exTag(t)}</td><td>${esc(t.who || "")}</td><td class="muted">${esc(t.note || "")}</td><td class="r ${t.type === "Доход" ? "pos" : "neg"}">${t.type === "Доход" ? "+" : "−"}${money(t.amount)}</td>${canEdit ? `<td class="r">${editBtn("tx", t.id)}</td>` : ""}</tr>`).join("")}</tbody>
+        </table></div>` : `<p class="empty">За ${ymLabel(month)} операций нет.</p>`}
+        <div class="totals num"><span>Доходы: <b class="pos">${money(ms.inc)}</b></span><span>Расходы: <b class="neg">${money(ms.exp)}</b></span><span>Баланс: <b class="${bal >= 0 ? "pos" : "neg"}">${bal >= 0 ? "+" : "−"}${money(Math.abs(bal))}</b></span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-head"><h2>Имущество и сбережения</h2>${addBtn("assets", "Добавить")}</div>
+      <div class="sheet tbl-wrap"><table>
+        <thead><tr><th>Название</th><th>Вид</th><th>Владелец</th><th>Примечание</th><th class="r">Оценка</th>${canEdit ? "<th></th>" : ""}</tr></thead>
+        <tbody>${assets.map((a) => `<tr><td>${esc(a.name)}${exTag(a)}</td><td>${esc(a.kind)}</td><td>${esc(a.owner || "")}</td><td class="muted">${esc(a.note || "")}</td><td class="r">${money(a.value)}</td>${canEdit ? `<td class="r">${editBtn("assets", a.id)}</td>` : ""}</tr>`).join("") || `<tr><td colspan="6" class="muted">Имущество пока не внесено.</td></tr>`}</tbody>
+        ${assets.length ? `<tfoot><tr><td colspan="4">Итого</td><td class="r">${money(assetsTotal)}</td>${canEdit ? "<td></td>" : ""}</tr></tfoot>` : ""}
+      </table></div>
+    </div>
+
+    <div>
+      <div class="sec-head"><h2>Долги и кредиты</h2>${addBtn("debts", "Добавить")}</div>
+      <div class="debts">${db.debts.map((d) => { const paid = d.total ? Math.max(0, Math.min(100, (1 - d.balance / d.total) * 100)) : 0; return `<div class="sheet debt">
+        <div class="plan-top"><h3>${esc(d.name)}</h3>${exTag(d)}</div>
+        <div class="muted" style="font-size:.85rem">${esc(d.lender || "")}</div>
+        <div class="tile" style="border:0;padding:8px 0 0;background:none"><div class="eyebrow">Остаток</div><div class="val neg">${money(d.balance)}</div></div>
+        <dl><dt>Сумма кредита</dt><dd>${money(d.total)}</dd>${d.rate ? `<dt>Ставка</dt><dd>${esc(d.rate)} %</dd>` : ""}${d.monthly ? `<dt>Платёж в месяц</dt><dd>${money(d.monthly)}</dd>` : ""}${d.endDate ? `<dt>Погашение</dt><dd>${fmtD(d.endDate)}</dd>` : ""}</dl>
+        <div class="progress" role="progressbar" aria-valuenow="${Math.round(paid)}" aria-valuemin="0" aria-valuemax="100"><i style="width:${paid.toFixed(1)}%"></i></div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:.82rem"><span class="muted">Выплачено ${Math.round(paid)}%</span>${editBtn("debts", d.id)}</div>
+      </div>`; }).join("") || '<p class="empty">Долгов нет.</p>'}</div>
+      ${db.debts.length ? `<p class="num" style="margin:12px 0 0">Ежемесячные платежи по кредитам: <b>${money(monthly)}</b></p>` : ""}
+    </div>`;
+
+  // подсказка на графике
+  const box = $("#chartBox"), tip = $("#tip"), svg = box.querySelector("svg");
+  box.querySelectorAll(".hit").forEach((r) => {
+    const show = () => {
+      const d = c.data[+r.dataset.i];
+      tip.innerHTML = `<b>${ymLabel(d.k)}</b><br>Доходы: ${money(d.inc)}<br>Расходы: ${money(d.exp)}<br>Баланс: ${d.inc - d.exp >= 0 ? "+" : "−"}${money(Math.abs(d.inc - d.exp))}`;
+      const scale = svg.clientWidth / c.W;
+      let x = (c.L + c.cw * (+r.dataset.i + 0.5)) * scale;
+      x = Math.max(80, Math.min(svg.clientWidth - 80, x));
+      tip.style.left = x + "px"; tip.style.top = "40px"; tip.hidden = false;
+      r.setAttribute("fill", "var(--accent-soft)"); r.setAttribute("fill-opacity", ".5");
+    };
+    const hide = () => { tip.hidden = true; r.setAttribute("fill", "transparent"); };
+    r.addEventListener("mouseenter", show); r.addEventListener("mouseleave", hide);
+    r.addEventListener("click", () => { month = c.data[+r.dataset.i].k; render(); });
+  });
+  $("#monthSel").addEventListener("change", (e) => { month = e.target.value; render(); });
 }
 
-function syncReqType() {
-  const type = dlg.querySelector('#f-type')?.value; if (!type) return;
-  const s = SERVICES.find(x => x.id === type);
-  dlg.querySelector('#f-dates').hidden = !s.dates;
-  dlg.querySelector('#f-comment').placeholder = L(s.hint);
-  dlg.querySelector('#f-comment-lbl').textContent = type === 'other' ? t('f_comment_req') : t('f_comment');
+/* ---------- Планы ---------- */
+function renderPlans() {
+  const list = db.plans.filter((p) => area === "all" || p.area === area);
+  const open = list.filter((p) => p.status !== "Готово").reduce((s, p) => s + (+p.budget || 0), 0);
+  const today = TODAY.toISOString().slice(0, 10);
+  $("#panel-plans").innerHTML = `
+    <div>
+      <div class="sec-head"><h2>Планы семьи</h2>${addBtn("plans", "Добавить план")}</div>
+      <div class="filters" role="group" aria-label="Направление">
+        ${["all", ...AREAS].map((a) => `<button type="button" data-area="${esc(a)}" aria-pressed="${a === area}">${a === "all" ? "Все направления" : esc(a)}</button>`).join("")}
+      </div>
+      <p style="margin:16px 0 20px">Бюджет незавершённых планов${area === "all" ? "" : " · " + esc(area)}: <b class="num">${money(open)}</b></p>
+      <div class="board">${STATUSES.map((s) => {
+        const items = list.filter((p) => p.status === s).sort((a, b) => String(a.due || "9").localeCompare(String(b.due || "9")));
+        return `<div class="col" data-s="${s}"><div class="col-head"><h3>${s}</h3><span class="n num">${items.length}</span></div><div class="cards">${items.map((p) => {
+          const late = p.status !== "Готово" && p.due && p.due < today;
+          const pr = Math.max(0, Math.min(100, +p.progress || 0));
+          return `<article class="plan">
+            <div class="plan-top"><span class="tag">${esc(p.area)}</span><span>${late ? '<span class="tag late">просрочено</span> ' : ""}${exTag(p)}</span></div>
+            <div class="plan-title">${esc(p.title)}</div>
+            ${p.note ? `<div class="plan-note">${esc(p.note)}</div>` : ""}
+            <div class="plan-meta">${p.who ? `<span>Для кого: ${esc(p.who)}</span>` : ""}${p.due ? `<span class="num">Срок: ${fmtD(p.due)}</span>` : ""}${p.budget ? `<span class="num">Бюджет: ${money(p.budget)}</span>` : ""}</div>
+            <div class="progress" role="progressbar" aria-valuenow="${pr}" aria-valuemin="0" aria-valuemax="100" aria-label="Готовность"><i style="width:${pr}%"></i></div>
+            <div style="display:flex;justify-content:space-between;font-size:.8rem"><span class="muted num">Готово на ${pr}%</span>${editBtn("plans", p.id)}</div>
+          </article>`; }).join("") || '<div class="empty">Пусто</div>'}</div></div>`;
+      }).join("")}</div>
+    </div>`;
 }
 
-function dayProblem(day) {
-  if (!day) return 'err_date';
-  if (day < todayIso()) return 'err_past';
-  const wd = parseDay(day).getDay();
-  if (wd === 0 || wd === 6) return 'err_weekday';
-  return '';
-}
-function slotBusy(spec, day, slot) {
-  let h = 7; for (const c of spec + day + slot) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  if (h % 4 === 0) return true;
-  if (day === todayIso()) { const [hh] = slot.split(':').map(Number); if (hh <= new Date().getHours()) return true; }
-  return allItems().some(x => x.kind === 'meeting' && x.spec === spec && x.day === day && x.slot === slot);
-}
-function renderSlots() {
-  const box = dlg.querySelector('#f-slots'); if (!box) return;
-  const spec = dlg.querySelector('#f-spec').value, day = dlg.querySelector('#f-day').value;
-  const prob = dayProblem(day);
-  setErr('f-day', prob ? t(prob) : '');
-  if (prob) { box.innerHTML = `<span class="hint">${t('pick_day')}</span>`; return; }
-  const free = SLOTS.filter(s => !slotBusy(spec, day, s));
-  box.innerHTML = free.length ? SLOTS.map(s => `<label class="opt"><input type="radio" name="slot" value="${s}"${slotBusy(spec, day, s) ? ' disabled' : ''}><span>${s}</span></label>`).join('') : `<span class="hint">${t('no_slots')}</span>`;
-}
+/* ---------- Формы ---------- */
+const genOpts = Object.entries(GEN).map(([v, l]) => ({ v, l: v + " — " + l }));
+const SCHEMA = {
+  family: { title: "Название семьи", fields: [
+    { k: "name", l: "Название семьи", req: 1, w: 1 }, { k: "motto", l: "Девиз (подзаголовок)", w: 1 }, { k: "story", l: "Вступление о семье", t: "textarea", w: 1 } ] },
+  members: { title: "Член семьи", warn: "Не храните здесь номера документов, банковских карт и счетов.", fields: [
+    { k: "name", l: "Имя", req: 1, w: 1 }, { k: "relation", l: "Кем приходится" },
+    { k: "generation", l: "Поколение", t: "select", opts: genOpts, num: 1 },
+    { k: "line", l: "Линия", t: "select", opts: LINES }, { k: "birthPlace", l: "Место рождения" },
+    { k: "birthDate", l: "Дата рождения", ph: "ГГГГ-ММ-ДД или ГГГГ", date: 1 }, { k: "deathDate", l: "Дата смерти", ph: "ГГГГ-ММ-ДД или ГГГГ", date: 1 },
+    { k: "occupation", l: "Занятие", w: 1 }, { k: "phone", l: "Телефон", t: "tel" }, { k: "email", l: "Эл. почта", t: "email" },
+    { k: "notes", l: "Заметки", t: "textarea", w: 1 } ] },
+  events: { title: "Событие", fields: [
+    { k: "year", l: "Год", req: 1, t: "number", int: 1 }, { k: "title", l: "Что произошло", req: 1 }, { k: "text", l: "Подробности", t: "textarea", w: 1 } ] },
+  tx: { title: "Операция", fields: [
+    { k: "date", l: "Дата", req: 1, t: "date" }, { k: "type", l: "Тип", req: 1, t: "select", opts: ["Доход", "Расход"] },
+    { k: "category", l: "Категория", req: 1, t: "select", opts: EXP_CATS }, { k: "amount", l: "Сумма, ₸", req: 1, t: "number", pos: 1 },
+    { k: "who", l: "Кто" }, { k: "note", l: "Комментарий" } ] },
+  assets: { title: "Имущество", fields: [
+    { k: "name", l: "Название", req: 1, w: 1 }, { k: "kind", l: "Вид", req: 1, t: "select", opts: KINDS }, { k: "value", l: "Оценка, ₸", req: 1, t: "number", pos: 1 },
+    { k: "owner", l: "Владелец" }, { k: "note", l: "Примечание" } ] },
+  debts: { title: "Кредит", fields: [
+    { k: "name", l: "Название", req: 1 }, { k: "lender", l: "Кредитор" },
+    { k: "total", l: "Сумма кредита, ₸", req: 1, t: "number", pos: 1 }, { k: "balance", l: "Остаток, ₸", req: 1, t: "number", pos: 1 },
+    { k: "monthly", l: "Платёж в месяц, ₸", t: "number", pos: 1 }, { k: "rate", l: "Ставка, %", t: "number", pos: 1 },
+    { k: "endDate", l: "Дата погашения", t: "date" }, { k: "note", l: "Примечание" } ] },
+  plans: { title: "План", fields: [
+    { k: "title", l: "Название", req: 1, w: 1 }, { k: "area", l: "Направление", req: 1, t: "select", opts: AREAS },
+    { k: "status", l: "Статус", req: 1, t: "select", opts: STATUSES }, { k: "who", l: "Для кого" }, { k: "due", l: "Срок", t: "date" },
+    { k: "budget", l: "Бюджет, ₸", t: "number", pos: 1 }, { k: "progress", l: "Готовность, %", t: "number", pct: 1 },
+    { k: "note", l: "Подробности", t: "textarea", w: 1 } ] }
+};
 
-function setErr(id, msg) {
-  const e = dlg.querySelector('#' + id + '-err'); if (e) e.textContent = msg;
-  const f = dlg.querySelector('#' + id); if (f) f.setAttribute('aria-invalid', msg ? 'true' : 'false');
-}
+const dlg = $("#dlg"), body = $("#dlgBody");
+function openDlg(html) { body.innerHTML = html; if (!dlg.open) dlg.showModal(); }
+dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
 
-function submitForm(form) {
-  const kind = form.dataset.kind, fd = new FormData(form);
-  const v = k => (fd.get(k) || '').toString().trim();
-  let ok = true, first = null;
-  const fail = (id, key) => { setErr(id, t(key)); ok = false; first = first || id; };
-  const item = { id: uid(), kind, status: 'new', createdAt: new Date().toISOString(), lang, reply: '', text: v('text'), spec: '' };
-
-  if (kind === 'request') {
-    ['f-from', 'f-to', 'f-comment'].forEach(id => setErr(id, ''));
-    item.type = v('type');
-    const s = SERVICES.find(x => x.id === item.type);
-    if (s.dates) {
-      item.from = v('from'); item.to = v('to');
-      if (!item.from) fail('f-from', 'err_from');
-      if (item.from && item.to && item.to < item.from) fail('f-to', 'err_to');
-    }
-    if (item.type === 'other' && !item.text) fail('f-comment', 'err_comment');
-  } else if (kind === 'question') {
-    setErr('f-text', '');
-    item.type = v('type'); item.spec = v('spec');
-    if (!item.text) fail('f-text', 'err_text');
-  } else if (kind === 'meeting') {
-    setErr('f-slots', '');
-    item.type = 'meeting'; item.spec = v('spec'); item.day = v('day'); item.slot = v('slot'); item.format = v('format') || 'office';
-    const prob = dayProblem(item.day);
-    if (prob) fail('f-day', prob);
-    else if (!item.slot) fail('f-slots', 'err_slot');
-  }
-  if (!ok) { const f = dlg.querySelector('#' + first); if (f && f.focus) f.focus(); return; }
-
-  if (addItem(item)) {
-    dlg.close();
-    toast(t('toast_ok'));
-    renderData();
-    document.getElementById('my').scrollIntoView();
+function fieldHtml(f, val) {
+  const id = "f-" + f.k;
+  const v = val == null ? "" : val;
+  let input;
+  if (f.t === "select") {
+    const opts = f.opts.map((o) => typeof o === "string" ? { v: o, l: o } : o);
+    input = `<select id="${id}" name="${f.k}">${f.req ? "" : '<option value="">—</option>'}${opts.map((o) => `<option value="${esc(o.v)}"${String(o.v) === String(v) ? " selected" : ""}>${esc(o.l)}</option>`).join("")}</select>`;
+  } else if (f.t === "textarea") {
+    input = `<textarea id="${id}" name="${f.k}">${esc(v)}</textarea>`;
   } else {
-    toast(t('toast_fail'), true);
+    input = `<input id="${id}" name="${f.k}" type="${f.t || "text"}" value="${esc(v)}"${f.ph ? ` placeholder="${esc(f.ph)}"` : ""}${f.t === "number" ? ' inputmode="decimal" step="any"' : ""}>`;
   }
+  return `<div class="field${f.w ? " wide" : ""}" data-k="${f.k}"><label for="${id}">${esc(f.l)}${f.req ? " *" : ""}</label>${input}<div class="err" hidden></div></div>`;
 }
 
-/* ============ Уведомления и копирование ============ */
-function toast(msg, bad = false, extra = '') {
-  const box = document.getElementById('toasts');
-  const el = document.createElement('div');
-  el.className = 'toast' + (bad ? ' bad' : '');
-  el.innerHTML = esc(msg) + extra;
-  box.appendChild(el);
-  setTimeout(() => el.remove(), extra ? 8000 : 3200);
-  return el;
-}
-async function copyText(v) {
-  try {
-    if (!navigator.clipboard) throw 0;
-    await navigator.clipboard.writeText(v);
-    toast(t('copied') + ': ' + v);
-  } catch (e) {
-    const el = toast(t('copy_fail'), false, `<input readonly value="${esc(v)}" aria-label="${esc(v)}">`);
-    const inp = el.querySelector('input'); inp.focus(); inp.select();
+function openForm(col, id) {
+  if (!canEdit) return;
+  const sc = SCHEMA[col];
+  const rec = col === "family" ? db.family : (id ? db[col].find((r) => r.id === id) : null);
+  const init = rec || (col === "tx" ? { date: TODAY.toISOString().slice(0, 10), type: "Расход" } : col === "plans" ? { status: "Идея", area: area === "all" ? AREAS[0] : area, progress: 0 } : col === "members" ? { generation: 4, line: "общая" } : {});
+  const isNew = !rec;
+  openDlg(`<form id="recForm" novalidate>
+    <div class="dlg-head"><h3 id="dlgTitle">${isNew ? "Новая запись · " : ""}${esc(sc.title)}</h3><button class="x" type="button" data-close aria-label="Закрыть">×</button></div>
+    ${sc.warn ? `<div class="note-warn">${esc(sc.warn)}</div>` : ""}
+    <div class="fields" style="margin-top:14px">${sc.fields.map((f) => fieldHtml(f, init[f.k])).join("")}</div>
+    <div class="err" id="formErr" hidden style="margin-top:10px"></div>
+    <div class="dlg-foot" style="margin-top:16px">
+      ${!isNew && col !== "family" ? '<button class="btn danger" type="button" id="delBtn">Удалить</button>' : ""}
+      <div class="right"><button class="btn" type="button" data-close>Отмена</button><button class="btn primary" type="submit">Сохранить</button></div>
+    </div>
+  </form>`);
+
+  const form = $("#recForm");
+  if (col === "tx") {
+    const typeSel = $("#f-type"), catSel = $("#f-category");
+    const fill = () => {
+      const cats = typeSel.value === "Доход" ? INC_CATS : EXP_CATS;
+      const cur = catSel.value;
+      catSel.innerHTML = cats.map((c) => `<option${c === cur ? " selected" : ""}>${esc(c)}</option>`).join("");
+    };
+    if (init.category) { catSel.innerHTML = `<option selected>${esc(init.category)}</option>`; }
+    fill();
+    typeSel.addEventListener("change", fill);
   }
-}
-
-/* ============ Плавающая кнопка ============ */
-function closeFab() {
-  const f = document.getElementById('fab'); if (!f.classList.contains('open')) return;
-  f.classList.remove('open'); document.getElementById('fabBtn')?.setAttribute('aria-expanded', 'false');
-}
-function toggleFab() {
-  const f = document.getElementById('fab'); const open = !f.classList.contains('open');
-  f.classList.toggle('open', open); document.getElementById('fabBtn').setAttribute('aria-expanded', String(open));
-  if (open) f.querySelector('.fab-menu button')?.focus();
-}
-
-/* ============ События ============ */
-document.addEventListener('click', e => {
-  const b = e.target.closest('[data-act]');
-  if (!e.target.closest('#fab')) closeFab();
-  if (!b) return;
-  const d = b.dataset;
-  switch (d.act) {
-    case 'lang': lang = d.v; Store.set('akv.lang', lang); renderAll(); break;
-    case 'role': role = d.v; Store.set('akv.role', role); renderAll(); break;
-    case 'ask': openForm('question', { topic: d.topic, text: d.text, spec: d.spec }); break;
-    case 'meet': openForm('meeting', { spec: d.spec }); break;
-    case 'request': openForm('request', { type: d.type }); break;
-    case 'idea': closeFab(); document.getElementById('ideas').scrollIntoView(); setTimeout(() => document.getElementById('ideaText')?.focus({ preventScroll: true }), 300); break;
-    case 'copy': closeFab(); copyText(d.v); break;
-    case 'close': dlg.close(); break;
-    case 'fab': toggleFab(); break;
-    case 'tab': selectTab(+d.i, false); break;
-    case 'filter': hrFilter = d.v; renderHr(); break;
-    case 'del-idea':
-      if (b.dataset.armed) {
-        const rest = Store.get('akv.ideas', []).filter(i => i.id !== d.id);
-        if (Store.set('akv.ideas', rest)) { toast(t('toast_del')); renderIdeas(); } else toast(t('toast_fail'), true);
-      } else { b.dataset.armed = '1'; b.textContent = t('del_confirm'); setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = t('del'); } }, 4000); }
-      break;
-  }
-});
-
-function selectTab(i, focus) {
-  procIdx = (i + PROCS.length) % PROCS.length;
-  document.querySelectorAll('#procTabs .tab').forEach((tb, k) => { tb.setAttribute('aria-selected', k === procIdx); tb.tabIndex = k === procIdx ? 0 : -1; });
-  const panel = document.getElementById('procPanel');
-  panel.innerHTML = procPanel(); panel.setAttribute('aria-labelledby', 'ptab' + procIdx);
-  const cur = document.getElementById('ptab' + procIdx);
-  if (focus) cur.focus();
-  cur.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { if (document.getElementById('fab').classList.contains('open')) { closeFab(); document.getElementById('fabBtn')?.focus(); } }
-  if (e.target.matches && e.target.matches('#procTabs .tab')) {
-    const map = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
-    if (e.key in map) { e.preventDefault(); selectTab(procIdx + map[e.key], true); }
-    if (e.key === 'Home') { e.preventDefault(); selectTab(0, true); }
-    if (e.key === 'End') { e.preventDefault(); selectTab(PROCS.length - 1, true); }
-  }
-});
-
-document.addEventListener('submit', e => {
-  const f = e.target;
-  if (f.dataset.kind) { e.preventDefault(); submitForm(f); return; }
-  if (f.id === 'ideaForm') {
+  const del = $("#delBtn");
+  if (del) del.addEventListener("click", () => {
+    if (!del.classList.contains("armed")) { del.classList.add("armed"); del.textContent = "Точно удалить?"; return; }
+    db[col] = db[col].filter((r) => r.id !== id); save(); dlg.close(); render();
+  });
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const txt = f.text.value.trim(), err = document.getElementById('ideaErr');
-    if (!txt) { err.textContent = t('err_idea'); f.text.setAttribute('aria-invalid', 'true'); f.text.focus(); return; }
-    err.textContent = ''; f.text.setAttribute('aria-invalid', 'false');
-    const list = Store.get('akv.ideas', []);
-    list.push({ id: uid(), category: f.category.value, text: txt.slice(0, 600), createdAt: new Date().toISOString() });
-    if (Store.set('akv.ideas', list)) { f.text.value = ''; document.getElementById('ideaCount').textContent = `0 / 600 ${t('chars')}`; toast(t('toast_idea')); renderIdeas(); }
-    else toast(t('toast_fail'), true);
-    return;
-  }
-  if (f.classList.contains('hr-edit')) {
-    e.preventDefault();
-    const ok = updateItem(f.dataset.owner, f.dataset.id, { status: f.status.value, reply: f.reply.value.trim() });
-    toast(ok ? t('saved') : t('toast_fail'), !ok);
-    if (ok) { renderHr(); renderMy(); }
-  }
+    const out = {}; let ok = true;
+    sc.fields.forEach((f) => {
+      const box = form.querySelector(`.field[data-k="${f.k}"]`), err = box.querySelector(".err");
+      let v = form.elements[f.k].value.trim(), msg = "";
+      if (f.req && v === "") msg = "Заполните это поле.";
+      else if (v !== "" && f.t === "number") {
+        const n = Number(v.replace(",", ".").replace(/\s/g, ""));
+        if (!isFinite(n)) msg = "Введите число.";
+        else if (f.int && !Number.isInteger(n)) msg = "Введите год целым числом.";
+        else if (f.pos && n < 0) msg = "Число не может быть отрицательным.";
+        else if (f.pct && (n < 0 || n > 100)) msg = "Введите число от 0 до 100.";
+        else v = n;
+      } else if (v !== "" && f.date && !parseD(v)) msg = "Формат: ГГГГ-ММ-ДД или ГГГГ.";
+      else if (v !== "" && f.num) v = Number(v);
+      box.classList.toggle("bad", !!msg); err.hidden = !msg; err.textContent = msg;
+      if (msg) ok = false;
+      out[f.k] = v;
+    });
+    if (col === "debts" && ok && out.balance > out.total) {
+      const box = form.querySelector('.field[data-k="balance"]'); box.classList.add("bad");
+      box.querySelector(".err").hidden = false; box.querySelector(".err").textContent = "Остаток больше суммы кредита."; ok = false;
+    }
+    if (!ok) return;
+    if (col === "family") { db.family = Object.assign({}, out); }
+    else if (rec) { const i = db[col].findIndex((r) => r.id === id); const n = Object.assign({ id }, out); db[col][i] = n; }
+    else {
+      if (docCount() >= MAX_DOCS) { const fe = $("#formErr"); fe.hidden = false; fe.textContent = "База заполнена: в ней уже 5 000 записей. Удалите ненужные, чтобы добавить новую."; return; }
+      db[col].push(Object.assign({ id: uid() }, out));
+    }
+    if (col === "tx") month = ym(out.date);
+    save(); dlg.close(); render();
+  });
+}
+
+function openPerson(id) {
+  const m = db.members.find((r) => r.id === id); if (!m) return;
+  const rows = [
+    ["Кем приходится", m.relation], ["Поколение", GEN[m.generation]], ["Линия", m.line],
+    ["Дата рождения", fmtD(m.birthDate)], ["Дата смерти", fmtD(m.deathDate)], ["Возраст", lifeText(m)],
+    ["Место рождения", m.birthPlace], ["Занятие", m.occupation], ["Телефон", m.phone], ["Эл. почта", m.email], ["Заметки", m.notes]
+  ].filter(([, v]) => v);
+  openDlg(`<div class="dlg-head"><div class="card-hero"><span class="avatar" aria-hidden="true">${esc(initials(m.name))}</span><div><h3 id="dlgTitle">${esc(m.name)}</h3>${m.example ? '<span class="tag ex">пример</span>' : ""}</div></div><button class="x" type="button" data-close aria-label="Закрыть">×</button></div>
+    <dl class="info">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+    <div class="dlg-foot"><div class="right"><button class="btn" type="button" data-close>Закрыть</button>${canEdit ? `<button class="btn primary" type="button" data-edit="members" data-id="${esc(m.id)}">Изменить</button>` : ""}</div></div>`);
+}
+
+/* ---------- События ---------- */
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-edit],[data-add],[data-person],[data-close],[data-area],[data-tab]");
+  if (!t) return;
+  if (t.dataset.close !== undefined) dlg.close();
+  else if (t.dataset.tab) { tab = t.dataset.tab; pref("tab", tab); try { history.replaceState(null, "", "#" + tab); } catch (err) {} render(); }
+  else if (t.dataset.area) { area = t.dataset.area; render(); }
+  else if (t.dataset.add) openForm(t.dataset.add);
+  else if (t.dataset.edit) openForm(t.dataset.edit, t.dataset.id);
+  else if (t.dataset.person) openPerson(t.dataset.person);
+});
+document.addEventListener("keydown", (e) => {
+  if ((e.key === "Enter" || e.key === " ") && e.target.matches("tr[data-person]")) { e.preventDefault(); openPerson(e.target.dataset.person); }
+});
+window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (TABS.includes(h)) { tab = h; render(); } });
+$("#editFamily").addEventListener("click", () => openForm("family", "main"));
+$("#toggleMode").addEventListener("click", () => { canEdit = !canEdit; pref("mode", canEdit ? "edit" : "view"); render(); });
+const resetBtn = $("#resetDemo");
+resetBtn.addEventListener("click", () => {
+  if (!resetBtn.dataset.armed) { resetBtn.dataset.armed = "1"; resetBtn.textContent = "Все ваши записи заменятся демо-данными. Нажмите ещё раз"; return; }
+  delete resetBtn.dataset.armed; resetBtn.textContent = "Вернуть демо-данные";
+  db = seed(); save(); month = null; render();
 });
 
-document.addEventListener('input', e => {
-  if (e.target.id === 'ideaText') document.getElementById('ideaCount').textContent = `${e.target.value.length} / 600 ${t('chars')}`;
-});
-dlg.addEventListener('change', e => {
-  if (e.target.id === 'f-type') syncReqType();
-  if (e.target.id === 'f-spec' || e.target.id === 'f-day') renderSlots();
-  if (e.target.name === 'slot') setErr('f-slots', '');
-});
-dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
-
-// Обновление «в реальном времени»: изменения из другой вкладки (например, HR сменил статус)
-window.addEventListener('storage', e => { if (e.key && (e.key.startsWith(REQ) || e.key === 'akv.ideas')) renderData(); });
-
-seed();
-renderAll();
+function render() {
+  renderHeader();
+  renderHistory();
+  renderAssets();
+  renderPlans();
+}
+render();
+})();
 </script>
 </body>
 </html>
